@@ -1,0 +1,95 @@
+<style>
+video::-internal-media-controls-download-button {
+    display:none;
+}
+
+video::-webkit-media-controls-enclosure {
+    overflow:hidden;
+}
+
+video::-webkit-media-controls-panel {
+    width: calc(100% + 30px); / Adjust as needed /
+}
+</style>
+<ion-modal-view class ="model-width" >
+<ion-header>
+    <div class="bar bar-header new-header back-btn">
+    <a href="javascript:void(0);" on-tap="back_classstory()">
+    <div class="ion-android-arrow-back back-icon col"></div></a>
+    <p class="col col-65">{{schoolName}}</p>
+   <div class="dropdown-icon col-25">
+      <a href="javascript:void(0);" on-tap="openSideMenu($event)"><div class="ion-android-more-vertical col"></div></a>
+      </div>
+    </div>
+
+  </ion-header>
+  <ion-content>
+  <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+      </ion-refresher>
+   <div class="item item-input post-item margin_bottom">
+        <span class="ion-android-person post-icon"></span>
+        <a href="javascript:void(0);" class="" on-tap="openPostSchool_Story()">What's happening in your school?</a>
+        <span class="ion-ios-camera post-media"></span>
+   </div> 
+<div class="col col-100 no_post" ng-if="showmsg==true">
+   <p style="" >No post available now..</p> 
+</div>
+   
+ <ion-list  ng-model="listdata"> 
+ <ion-item ng-repeat="item in items track by $index" class="margin_new_top"> 
+ 
+      <div class="item item-avatar">
+        <img ng-src="img/status_profile.png">
+        <h2>{{name}}</h2>
+        <p class="example"><span class="ion-arrow-right-c"></span>{{school_name}}&nbsp;<span></span></p>
+        <p class="ion-arrow-right-c"> {{item.teacher_name}} </p>
+        <div class="right-date"><p>{{item.date}}</p></div>
+      </div>
+      
+
+      <div class="item item-body">
+          <div ng-if="item.ext =='jpg'">
+          <img class="full-image" ng-src="{{imagePath}}school_stories/{{removeDollerChar(item.image_new)}}" >
+         
+          </div>
+          
+            <div ng-if="item.ext =='mp4' || item.ext =='3gp'">
+            <video ng-src="{{video(item.image)}}" class="centerme" controls="controls" ></video>
+            </div>
+            <p>
+            {{item.message}}
+            </p>
+        
+           <div class="likes-views">
+              <p on-tap="likes()"><span class="ion-heart"></span><span id="like_icon_{{$index+1}}">{{item.likes}}</span> Likes</p>
+               <p><span class="ion-checkmark-circled"></span>{{item.comment_count}}</p>
+               <h3 style="display:none">{{item.id}}</h3> 
+           </div>
+            
+            <div>
+                  <p class="comment-box">
+                  <input type="hidden" id="hid_liked_status_{{$index+1}}" value="{{item.liked}}" />
+                  <a href="javascript:void(0);" class="subdued {{item.liked == 1 ? 'clicked-color': ''}}" on-tap="openLikePage('{{$index+1}}')" id="liked_id_{{$index+1}}"><span class="ion-heart"></span></a>
+                  <a href="javascript:void(0);" class="subdued" on-tap="openCommentPage()"><span class="ion-chatbox-working"></span></a>
+                  </p>
+                  <div class="icon-right" on-tap="openCommentMenu($event)"  ng-if="item.teacher_ac_no==teacher_acno">
+                     <span class="ion-android-more-vertical"></span>
+                  </div>
+          </div>
+            
+       </div>
+      </ion-item>
+      </ion-list>
+      <div class="clearfix"></div>
+      </br> </br></br>
+       <center><button class="more-btn" on-tap="pagging()" ng-if="postCount>=10">More</button></center> 
+     
+       
+  </ion-content>
+</ion-modal-view>
+
+ 
+ 
+

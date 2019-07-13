@@ -1,0 +1,16 @@
+  <ion-modal-view class ="model-width">
+    <ion-header>
+      <div class="bar bar-header new-header back-btn">
+        
+          <p class="col col-65">Classgenie</p>
+		  <a href="javascript:void(0);" class="dropdown-icon" on-tap="openSideMenu($event)"><span class="ion-android-more-vertical col"></span></a>
+        </div>
+      </ion-header>
+      <ion-content>
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+        <div class="list massage-list">
+           <p class="massge-heading">Message</p>
+           <div id="chat_list" style="display:none;"></div>
+        </div>
+      </ion-content>
+    </ion-modal-view>

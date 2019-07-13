@@ -1,0 +1,41 @@
+<ion-modal-view class ="model-width">
+<ion-header>
+    <div class="bar bar-header new-header back-btn">
+    <p class="col col-65">Classgenie</p>
+    <!-- <a href="javascript:void(0);" class="dropdown-icon" on-tap="openSideMenu1($event)"><span class="ion-android-more-vertical col"></span></a> -->
+    </div>
+</ion-header>
+
+<ion-content> 
+    <br>
+    <label class="item item-input item-select">
+        <div class="input-label">
+        &nbsp;
+        </div>  
+         <select name="repeatSelect" ng-change="loadData()" id="repeatSelect" ng-model="data.model">
+      <option ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.name}}</option>
+    </select>
+    </label>  
+
+    <div class="list card" ng-if="dataLength > 0" ng-repeat="item in items | filter:{ title:searchKeyword } | limitTo: itemsLimit()">
+
+        <div class="item atachment_title"> 
+            <h2 class="">{{item.event_list[0].event_name}}</h2> 
+        </div>  
+
+        <div class="item item-body">
+            <p>Description : {{item.event_list[0].description}} </p>
+            <hr class="horizontal_border">
+            <p>Number of Volunteers : {{item.event_list[0].no_of_volunteer}} </p>
+            <hr class="horizontal_border">
+            <p>Start Date: {{item.start_date1}} </p> 
+            <hr class="horizontal_border">
+            <p>End Date : {{item.end_date1}}</p> 
+        </div> 
+    </div> 
+     <p align="center" ng-if="dataLength==0">Event not found!</p>
+    <div class="clearfix" ></div>
+    <center><button class="more_btn_new" ng-show="hasMoreItemsToShow()" ng-click="showMoreItems()" ng-if="dataLength > 0">Load More</button>
+    </center>
+</ion-content> 
+</ion-modal-view>

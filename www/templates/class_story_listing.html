@@ -1,0 +1,51 @@
+  <ion-modal-view class ="model-width">
+
+    <ion-header>
+      <div class="bar bar-header new-header back-btn">
+        <a href="javascript:void(0)" onclick="goTo_DashBoard();">
+          <div class="ion-android-arrow-back back-icon col"></div></a>
+          <p class="col-60">{{class_name}}</p>
+
+          <!-- a href="#" class="dropdown-icon"><span class="ion-android-person-add"></span></a -->
+        </div>
+      </ion-header>
+      <ion-content>
+      <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+    </ion-refresher>
+        <div class="list massage-list">
+          <p class="massge-heading">Student's List</p>
+
+          <a class="item item-avatar" href="javascript:void(0)" on-tap="all_story()" id="lnk_all_parents" style="display:none;">
+            <img ng-src="{{imagePath}}assets/class/{{classImage}}">
+            <h2>Whole Class Story</h2>
+            
+          </a>
+          
+          <div class="list classgenie-list">
+          <ion-list id="student_list" ng-model="listdata">
+          
+            <ion-item class="item-avatar item item-thumbnail-left image-item" ng-repeat="item in user_list track by $index"  
+            on-tap="openClassStory()">
+             <img ng-src="{{imagePath}}assets/student/{{item.image}}"/>  
+            <h2 ng-model="className">{{item.name}} <br>
+              <span ng-if="item.parent_ac_no=='0'"><small><a href="#/inviteparent">Invite parent</a></small></span>
+            </h2>
+            
+             <h3 ng-model="classID" style="display:none">{{item.student_no}} </h3>
+             <h3 ng-model="classID" style="display:none">{{item.parent_ac_no}} </h3>
+          </ion-item>
+        </ion-list>
+      </div>
+       <div id="chat_list" style="display:none;">
+          </div>
+
+        </div>
+       </ion-content>
+       
+  </ion-modal-view>
+
+      
+
+   

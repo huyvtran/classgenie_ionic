@@ -1,0 +1,47 @@
+<ion-modal-view class ="model-width" ng-controller="leader_signupCtrl">
+	<ion-header ng-include="'templates/signup/signup_header.html'"></ion-header>
+	<ion-content class="body-back">
+	<form  name="formteacher"class="login-form">
+			<singup-content></singup-content>
+			<div class="list">
+				<label class="item item-input new-item">
+					<span class="ion-android-person login-icon"></span>
+					<input type="text" placeholder="Name" ng-model="reg.fname" ng-required="true">
+				</label>
+				<label class="item item-input new-item">
+					<span class="ion-ios-telephone login-icon"></span>
+					<input type="number" placeholder="Phone Number" ng-minlength="8" ng-model="reg.phone" ng-required="true">
+				</label>
+				<label class="item item-input new-item">
+					<span class="ion-email login-icon"></span>
+					<input type="email" placeholder="Email" ng-model="reg.email" ng-required="true">
+				</label>
+				<label class="item item-input new-item">
+					<span class="ion-android-lock login-icon"></span>
+
+					<input type="password" ng-minlength="minlength" ng-model="reg.password" placeholder="Password" ng-required="true">
+				</label>
+				<label class="item item-input item-select  my-input my-select add-class-select col col-100">
+                 
+                <span class="ion-select login-icon"></span>
+		        <select class="new-select" ng-model="reg.selectGrade" required>               
+		            <option value="" label="Please Select"></option>
+		            <option ng-repeat="x in list" value="{{x.Id}}">
+		                {{x.Name}}
+		            </option>               
+              	</select>     	 
+               </label> 
+
+				<ion-list>
+                <ion-checkbox ng-model="filter.blue" class="new-blue" ng-required="true" ng-change="varify(reg.password.length)" >By creating an account,you agree to the Terms Of Service and Privacy Policy</ion-checkbox>
+
+
+				</ion-list>
+
+				<button class="button button-block submit-btn" ng-disabled="formteacher.$invalid" on-tap="doTeacherSignUp()">Create Account</button>
+				<div class="col col-100 my-content signup-already forget_link">Already have any account <a href="#/login">Login</a></div>
+			</div>
+			</form>
+
+	</ion-content>
+</ion-modal-view>

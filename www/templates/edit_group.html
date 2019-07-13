@@ -1,0 +1,45 @@
+<ion-modal-view class ="model-width" ng-controller="editGroupCtrl">
+    <ion-header>
+        <div class="bar bar-header new-header back-btn">
+
+            <a href="javascript:void(0)" on-tap="close_addgroup()"><div class="ion-close back-icon"></div></a>
+
+            <p class="col col-70">Edit Group</p>
+
+            <div class="col col-25">
+                <a href="javascript:void(0)" on-tap="createGroup()">
+                    <div class="ion-checkmark back-icon"></div></a></div>
+
+                </div>
+            </ion-header>
+
+            <ion-content >
+                <form name="formClass" novalidate>
+                    <div class="list add-student">
+
+
+                        <div class="row">
+                            <div class="col col-100"><label class="">
+                                Group Name
+                                <input id="groupname" type="text" placeholder="Group name" class="addgroup_search mynew-input" ng-required="true" ng-model="groupName">
+                            </label></div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col col-100" ng-disabled="addstudent" on-tap="openStudentList()">
+                                <div class="group_div">Students</div>
+                                <input type="text" placeholder="Student list" ng-model="studentlist" class="addgroup_search mynew-input">
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="new-class-btn">
+                                <a href="javascript:void(0);" class="button button-block button-positive save-btn new-class-btn" ng-disabled="formClass.$invalid"  on-tap="createGroup()">Save Changes</a>
+                            </div>
+                        </div>
+                    </div>
+                </form> 
+            </ion-content>
+        </ion-modal-view>
+

@@ -1,0 +1,32 @@
+<ion-modal-view class ="model-width" >
+
+<ion-header>
+    <div class="bar bar-header new-header back-btn">
+    <a href="javascript:void(0);" on-tap="backRemove()" class="disable-user-behavior">
+    <span class="ion-close-round col"></span></a>
+    <p class="col col-80">Remove Student</p>
+    </div>
+</ion-header>
+<ion-content >
+  <div class="tabs-striped tabs-top tabs-color-light new-tab">
+  <div class="list classgenie-list invite_parents">
+       
+  
+  <div class="list classgenie-list">
+            <ion-list id="student_list" ng-model="listdata">
+            <center><p>{{message}}</p></center>
+           
+            <ion-item class="item-avatar item item-thumbnail-left image-item" ng-repeat="item in items track by $index">
+            <img ng-src="{{imagePath}}student/{{item.image}}" /> 
+            <h2 ng-model="className">{{item.name}} ({{item.class_name}}) </h2>
+            <h3 ng-model="class_id"   style="display:none">{{item.class_id}} </h3> 
+            <h3 ng-model="student_no" style="display:none">{{item.student_no}} </h3>
+            <h3 ng-model="parent_no"  style="display:none">{{item.parent_ac_no}} </h3>
+            <span on-tap="removeStudent(item)"><p class="ion-md-close-circle ion-close new_icon remove" style="margin-top: -36px;"></p></span>
+            </ion-item>
+            </ion-list>  
+  </div>
+  </div>
+  </div>
+</ion-content>
+</ion-modal-view>

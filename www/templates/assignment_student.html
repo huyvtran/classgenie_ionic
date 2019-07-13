@@ -1,0 +1,107 @@
+<ion-modal-view class ="model-width" >
+    <ion-header>
+        <div class="bar bar-header new-header back-btn">
+             <a href="javascript:void(0)" on-tap="back()"> 
+                <div class="ion-android-arrow-back back-icon col"></div></a>
+            <p class="col col-70">{{className1}}</p>
+
+        </div>
+    </ion-header>
+
+    <ion-content class="margin-top">
+
+         <div class="tabs-striped tabs-top tabs-color-light new-tab">
+            <div class="list classgenie-list invite_assignment">
+                <div class="header-box"><p></p></div>
+                <div class="row">
+            <div class="col col-100">                             
+            <div class="list list-inset search_input_new">
+              <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search"  ng-model="searchKeyword">
+              </label>
+            </div>
+            </div></div>
+            <form name="assignment_form" id="assignment_form">
+            <div class="row">
+                        <div class="col col-50 left_flot">
+                            <div class="list list-inset search_input_new">
+                          <label class="item item-input">
+                            <i class="icon ion-ios-calendar-outline date-p-paddr0 placeholder-icon"></i>
+                            <input type="text" placeholder="From" class="form-control" ng-model="fromDate" onfocus="(this.type='date')" ng-required="true">
+                          </label>
+                        </div>
+                        </div>      
+
+                      
+                           <div class="col col-50 left_flot">                
+                           
+                           <div class="list list-inset search_input_new">
+                          <label class="item item-input">
+                            <i class="icon ion-ios-calendar-outline placeholder-icon"></i>
+                            <input type="text" placeholder="To" class="form-control" ng-model="toDate" onfocus="(this.type='date')" ng-required="true">
+                          </label>
+                        </div>
+                                
+                                     
+
+                        </div>
+                      
+                </div> 
+                </form>   
+       <div class="row"> 
+    <button class="button button-full serch_box_ne col col-100" ng-click="loadSearchData(fromDate,toDate)" ng-disabled="assignment_form.$invalid">Search
+           </button> </div>
+             </div>
+            </div> 
+
+            <div class="list card" ng-if="DtaTotal > 0" ng-repeat="item in items| filter:{ title:searchKeyword }  | limitTo: itemsLimit()">
+
+            <div class="item atachment_title">
+                <h2 class="">{{item.title}}</h2> 
+            </div>
+
+            <div class="item item-body" ng-class="addClass(item.submition_date)">
+                <p>Description - {{item.description}} </p>
+                <span class="ion-archive attachment" ng-if="item.attachment" ng-click="openPdf(item.attachment)">&nbsp;Attachment: {{item.attachment}}  </span> 
+
+                <p ng-if="item.created_date!=''">Date: {{item.created_at | date:'dd-MMM-yyyy'}}</p>
+
+
+                
+                <p ng-if="item.created_date!=''">Submission Date: {{item.submition_date | date:'dd-MMM-yyyy'}}</p>
+
+                <p ng-if="item.grade_details[0].grade">
+
+                       Marks: {{item.grade_details[0].grade}}
+
+                    </p>
+
+
+                    <p style="color:#0000ff;" ng-if="item.grade_details.status == 1">                                
+                        Status - Submitted
+
+                    </p>
+
+
+                    <p style="color:#ff0000;" ng-if="item.grade_details.status == 0">                                
+                       Status - Pending
+
+                    </p> 
+
+            </div> 
+
+        </div>   
+
+         <p align="center" ng-if="DtaTotal==0">No Assignment Available Yet !</p>
+
+            <div class="clearfix" ></div>
+             <center><button class="more_btn_new" ng-show="hasMoreItemsToShow()" ng-click="showMoreItems()" ng-if="DtaTotal > 0">Load More</button>
+               </center>
+                
+
+    </ion-content>
+</ion-modal-view>
+
+
+

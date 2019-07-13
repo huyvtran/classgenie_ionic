@@ -1,0 +1,33 @@
+<ion-modal-view class ="model-width" ng-controller="ctrlSchool"> 
+  <ion-header>
+    <div class="bar bar-header new-header back-btn">
+      <a href="javascript:void(0);"><span class="ion-android-arrow-back back-icon col"  on-tap="skipaddschool()"></span></a>
+      <p class="col-80">Join Your School</p>
+      
+       </div>
+  </ion-header>
+  <ion-content class="margin-top">
+    <div class="list">
+      <div class="profile feild responsive-sm"> 
+        <br />
+        <label class="item item-input my-input col col-100">
+          <input id="search" type="text" placeholder="School Name." class="place-color" ng-model="school_name" ng-keyup="seachSchoolKeyup(school_name, $event)" ng-blur="seachSchool(school_name)">
+        </label>
+        <div class="list classgenie-list" id="classgenie_school_list">
+          <a class="item image-item new_image_item invte_item school_item" href="javascript:void(0);" ng-repeat="item in mylist_data" id="school_item_{{$index}}" on-tap="selectedItem('school_item_{{$index}}','{{item}}');">
+            <h2>{{item.school_name}}</h2>
+            <p>{{item.address}}</p>
+          </a>
+          <a href="javascript:void(0);"  ng-hide="addlink" on-tap="add_school($event)"><span><b>ADD School "{{school_name}}"</b></span></a>
+          <center ng-if="mylist_data.length==0"><b>No record found!</b><br></center>
+        </div>
+      </div> 
+    </div> 
+<br>
+</ion-content>
+
+<div class="bar bar-footer new-footer" ng-show="hideshow">
+  <a href="javascript:void(0)" on-tap="skipaddschool()"  class="col footer-box"><p><strong class="text-center">I'm not in a school</strong></p></a>
+  <!-- <a href="javascript:void(0)" on-tap="sendRequestTeacherlist()" class="col col-50 footer-box"><p><strong>Request to join school</strong></p></a> -->
+</div>
+</ion-modal-view>

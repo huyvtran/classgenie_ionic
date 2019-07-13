@@ -1,0 +1,30 @@
+<ion-modal-view class ="model-width poop_award">
+  <ion-header>
+    <div class="bar bar-header new-header_new back-btn">
+    <a href="javascript:void(0);" on-tap="closeList()">
+    <span class="ion-close-round col"></span></a>
+    <p class="col col-65">{{name}}<br/>({{tokenDta}})</p>
+
+    <a href="javascript:void(0);" class="dropdown-icon" on-tap="selectDate($event)"><span class="ion-calendar col"></span></a>
+    </div>
+  </ion-header>
+  <ion-content>
+    <div ng-hide="nocontent">
+    <div class="col col-100 graph_img">
+    	<img ng-src="img/graph.png" />
+ <div class="positive_1"><span>No points for current date selected</span></div></div>
+    </div>
+    <center>
+    <div class="col col-100 graph">
+<div ng-hide="graph" id="chart-container" class="graph">Loading Performance graph</div></center></div>
+
+<ion-list ng-repeat = "item in award_data" style="margin-bottom:40%">
+<a class="item item-thumbnail-left image-item" href="javascript:void(0)">
+    
+      <img ng-src="{{imagePath}}skill/{{item.customize_detail.image}}">
+      <div ng-if="item.point > 0"><h2><strong>+{{item.point}} for {{item.customize_detail.name}}</strong></h2></div>
+      <div ng-if="item.point < 0"><h2><strong>{{item.point}} for {{item.customize_detail.name}}</strong></h2></div>
+      <p class="border">by {{item.class_name.teacher_name}}</p>
+    </a>
+</ion-list>
+  </ion-content>

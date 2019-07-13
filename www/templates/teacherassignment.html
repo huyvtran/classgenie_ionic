@@ -1,0 +1,66 @@
+<ion-modal-view class ="model-width" ng-controller="createAssignCtrl">
+    <ion-header>
+        <div class="bar bar-header new-header back-btn">
+
+            <a href="javascript:void(0)"> 
+                <div class="ion-android-arrow-back back-icon col" ng-click="back()"></div>
+            </a>
+
+
+                <div class="addclass col-65" ng-click="back()">Add assignment</div>
+             
+        </div>
+    </ion-header>
+
+<ion-content ng-controller="createAssignCtrl">
+<form name="assignment_submit">
+<div class="list add-student">
+
+<div class="row">
+  <div class="col col-100">
+    <label class="">
+     Title
+     <input type="text" class="addgroup_search mynew-input" ng-model="title" ng-required="true">     
+   </label> 
+  </div>
+</div>
+
+<div class="row">
+  <div class="col col-100">
+    <label class="">
+     Submission Date
+     <input type="date" id="currentDate1" class="addgroup_search mynew-input" ng-model="submission_date" ng-required="true">
+
+   </label> 
+
+  </div>
+</div>
+<div class="row">
+  <div class="col col-100">
+  <label>Description
+    <textarea rows="4" class="addgroup_search mynew-input" ng-model="description" ng-required="true"></textarea>
+  </label>
+  
+  </div>
+</div>
+
+<!-- <input id="the-file-input" type="file"> -->
+<p class="row">File path:{{filename}}</p>
+<div class="row">
+
+<button class="button button-full button-positive" ng-click="filepathChooser()">
+                      Select File
+</button>
+</div>
+
+
+<div class="row">
+    <button class="button button-clear white_color button-full button-positive date_btn " ng-click="summit_assignment()" ng-disabled="assignment_submit.$invalid">
+       Submit
+    </button>
+</div>
+<p ng-model="currentDate2" style="display:none"> {{date | date:'yyyy-MM-dd'}}</p> 
+</div>
+</form>
+
+</ion-content>

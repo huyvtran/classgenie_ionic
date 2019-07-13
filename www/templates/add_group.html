@@ -1,0 +1,70 @@
+<ion-modal-view class ="model-width">
+    <ion-header>
+        <div class="bar bar-header new-header back-btn">
+
+            <a href="javascript:void(0)" on-tap="close_addgroup()"><div class="ion-close back-icon"></div></a>
+
+            <p class="col col-70">Add Group</p>
+
+            <div class="col col-25">
+                <a href="javascript:void(0)" on-tap="createGroup()">
+                    <div class="ion-checkmark back-icon"></div></a></div>
+
+                </div>
+            </ion-header>
+
+            <ion-content >
+                <form name="formClass" novalidate>
+                    <div class="list add-student">
+
+
+                        <div class="row">
+                            <div class="col col-100"><label>
+                                Group Name
+                                <input id="groupname" type="text" placeholder="Group name" class="addgroup_search mynew-input" ng-required="true" ng-model="groupName" ng-keyup="varify()">
+                            </label>
+                            <span id="name"><p>add group name</p></span></div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col col-100" ng-disabled="addstudent">
+                                <div class="group_div">Students</div>
+                                <input type="text" id="student_list" placeholder="Student list" ng-model="studentlist" ng-required="true" class="addgroup_search mynew-input" disabled>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <button class="button button-positive largeinput date_btn disable-user-behavior" ng-disabled="validatefield" on-tap="createGroup()">Save Changes</button>
+                        </div>
+                        <div class="row">
+                        <div class="col col-100">
+                           <ion-list id="studentlist_collection"><ion-item  ng-repeat="item in items track by $index" class="add_group_list">
+                           <div ng-if="item.selected == 1"> 
+                                <ion-item  class="item-avatar " style="background-color:#ccc;" id="stu_{{item.student_no}}"  on-tap="select_student(item)" ng-class="test" data-uniqueid="{{item.student_no}}">
+                                <img ng-src="{{imagePath}}assets/student/{{item.image}}"/><p>{{number}}</p>
+                                <h2>{{item.name}}</h2><h1>{{item.value}}</h1>
+                                <input type="checkbox" style="display:none" id="stu_{{item.student_no}}" value="{{item.student_no}}" ng-model="item.student_no">
+                                <h3 ng-model="studentID" style="display:none">{{item.student_no}}</h3> 
+                               <input type="hidden" id="stuname_{{item.student_no}}" value="{{item.name}}">  
+                               <input type="hidden" id="stuid_{{item.student_no}}" value="{{item.student_no}}"></ion-item>
+                        </div>
+                         <div ng-if="item.selected !=1 "> 
+                              <ion-item  class="item-avatar" id="stu_{{item.student_no}}"  on-tap="select_student(item)" ng-class="test" data-uniqueid="{{item.student_no}}">
+                              <img ng-src="{{imagePath}}assets/student/{{item.image}}"/><p>{{number}}</p>
+                              <h2>{{item.name}}</h2><h1>{{item.value}}</h1>
+                              <input type="checkbox" style="display:none" id="stu_{{item.student_no}}" value="{{item.student_no}}" ng-model="item.student_no">
+                              <h3 ng-model="studentID" style="display:none">{{item.student_no}}</h3> 
+                            <input type="hidden" id="stuname_{{item.student_no}}" value="{{item.name}}">
+                            <input type="hidden" id="stuid_{{item.student_no}}" value="{{item.student_no}}"></ion-item>
+                        </div>
+            </ion-item>
+                            
+                            </ion-list></div>
+<input type="checkbox" style="display:none" />
+                        </div>
+                    </div>
+                </form> 
+            </ion-content>
+        </ion-modal-view>
+

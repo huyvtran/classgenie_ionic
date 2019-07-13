@@ -1,0 +1,38 @@
+<ion-modal-view class ="model-width">
+<ion-header>
+    <div class="bar bar-header new-header back-btn">
+    <a href="javascript:void(0);" class="" on-tap="closeResponsibiltyModal();"> 
+       <div class="ion-close back-icon col"></div>
+    </a>
+    <div class="addclass col-75">Add Responsibilty</div>   
+</div>
+</ion-header>
+<ion-content>
+  <div class="list add-student">
+  <div class="row">
+  <div class="col col-100">
+  <form name="formResponsibilty" id="formResponsibilty">
+  <div class="list">
+     <div class="item item-input-inset new_add_box">
+            <input type="text" placeholder="Responsibility" id="responsibilty" ng-model="fres.responsibilty" ng-required="true">
+            <button class="button button-small add_btn"  on-tap="saveResponsibilty();" ng-disabled="formResponsibilty.$invalid">Add</button>
+  </div>
+ </div>
+ </form>
+</div>
+</div>
+<div class="row">
+  <div class="col col-100 radio-btn-style">
+      <ion-list>
+         <ion-item  ng-repeat="item in responsibilty_list_items track by $index">
+          <ion-checkbox name="checked_id" ng-click="updateSelection($event, item.id)"> </ion-checkbox> 
+          <h3>{{item.responsibilty}}</h3>   
+             <a href="javascript:void(0);" ng-click="editResponsibiltyPage(item.id,item.responsibilty)">EDIT</a>
+               
+        </ion-item>
+    </ion-list>
+  </div>
+</div>
+</div>
+</ion-content>
+</ion-modal-view>

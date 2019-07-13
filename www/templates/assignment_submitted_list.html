@@ -1,0 +1,77 @@
+<ion-modal-view class ="model-width">
+    <ion-header>
+        <div class="bar bar-header new-header back-btn">
+
+            <a href="javascript:void(0)" on-tap="backPage()"> 
+                <div class="ion-android-arrow-back back-icon col"></div>
+            </a>
+            <div class="addclass col-65" on-tap="backPage()">Student List&nbsp;({{items.title}})</div>
+
+        </div>
+    </ion-header>
+
+    <ion-content ng-controller="submittedassignmentCtrl">
+        <br />
+        </br>
+        <br />
+        <div class="list card" id="parentId" ng-repeat="item in studentList | limitTo: itemsLimit()">
+
+            <div class = "row">
+                <div class = "col"> 
+                    <div class="item item-avatar">
+                                <img src="img/chat_user.png">
+                                <p class="asig_p">{{item.student_name.name}}<span ng-if="item.student_name.student_status == 0">&nbsp;(Not reg)</span></p>
+                                
+                                <input type="hidden" value="{{item.student_no}}" ng-model="hiddenValue"></p>
+                    </div>
+                </div>          
+            </div>
+
+            <div class = "row row_new">
+                <div class = "col"> 
+                <div class="col" ng-if="item.grade">
+                   Marks
+                </div>
+
+                <div class="" ng-if="item.grade == ''">
+                <input type = "number" id="text_{{item.id}}" ng-keypress="filterValue($event)" class="text text-left nember_grade" style="border:1px solid #eee;" placeholder="Enter marks" ng-model="grade">
+                </div>
+
+            </div>
+            <div class = "col col-30">
+                <div class = "col checket_ion" ng-if="item.grade == ''">
+                  <a href=""><span class="ion-checkmark-circled" on-tap="addGrade(item)">
+                   </span></a>
+                  </div>
+
+                <div class = "col" ng-if="item.grade">
+                    {{item.grade}}          
+                </div>                
+            </div>
+
+            <div class = "col">
+                
+                <div class = "col remeinder_ion" ng-if="item.student_name.student_status == 1 && item.grade == ''">
+                    <a href=""><span class="ion-information-circled"  on-tap="sendReminder()"></span></a>
+                </div>
+                <div class = "col disable_remeinder_ion" ng-if="item.student_name.student_status == 0">
+                    <a href=""><span class="ion-information-circled"  on-tap="unverified()"></span></a>
+                </div>
+                <!-- <div class = "col remeinder_ion" ng-if="item.student_name.student_status == 1 && item.grade != ''">
+                    <a href=""><span class=""  ng-click="javascript:void(0)"></span></a>
+                </div> -->
+                
+                </div>
+   
+            </div> 
+
+    </div>   
+    
+    <div class="clearfix" ></div>
+    <center><button class="more_btn_new" ng-show="hasMoreItemsToShow()" ng-click="showMoreItems()" ng-if="listsize > 0">More</button>
+    </center>
+
+    </ion-content>
+
+
+</ion-modal-view>

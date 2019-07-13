@@ -1,0 +1,36 @@
+<!--
+Create tabs with an icon and label, using the tabs-positive style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+-->
+<ion-tabs ng-model="classroomid" class="tabs-icon-top tabs-color-active-positive" tabs-swipable>
+<ion-tab title="Class Story"  icon-off="ion-person-stalker" icon-on="ion-person-stalker" href="#/home/class_story" >
+    <ion-nav-view name="class_story"></ion-nav-view>
+</ion-tab>
+  <!-- Classroom Tab -->
+  <ion-tab title="Messages" icon-off="ion-android-chat"  icon-on="ion-android-chat" href="#/home/parent_messages">
+    <ion-nav-view name="parent_messages"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Chats Tab -->
+  <ion-tab title="Your Kid" icon-off="ion-android-image" icon-on="ion-android-image"  href="#/home/your_kid">
+    <ion-nav-view name="your_kid"></ion-nav-view>
+  </ion-tab>
+  <!-- Account Tab -->
+
+
+  <!-- Assignment Tab -->
+  <ion-tab title="Assignment" icon-off="ion-android-image" icon-on="ion-android-image"  href="#/home/your_kid_assignment">
+    <ion-nav-view name="your_kid_assignment"></ion-nav-view>
+  </ion-tab>
+  <!-- Assignment Tab -->
+
+
+  <!-- Event Tab -->
+  <ion-tab title="Events" icon-off="ion-android-image" icon-on="ion-android-image"  href="#/home/event_parent">
+    <ion-nav-view name="event_parent"></ion-nav-view>
+  </ion-tab>
+  <!-- Assignment Tab -->
+
+
+</ion-tabs>

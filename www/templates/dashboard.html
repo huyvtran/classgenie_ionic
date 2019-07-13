@@ -1,0 +1,73 @@
+<ion-modal-view class ="model-width">
+  <ion-header>
+    <div class="bar bar-header new-header">
+      <div class="titile col col-50">
+        <p>Classgenie</p></div>
+        <div class="right_profile col-33 col-offset-33">
+          <div class="item-profile">
+          <a href="#/profile" class="item-profile" ><img ng-src="{{imgURI}}" />
+          </a>
+          </div>
+        </div>
+      </div> 
+      </ion-header>
+      <ion-content class="margin-top">
+      <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+      </ion-refresher>
+
+        <div class="list classgenie-list">
+          <div class="header-box"><p>Your School</p></div>
+          <a class="item item-thumbnail-left image-item" href="javascript:void(0);" on-tap="schoolinfo($event)">
+              <img ng-src="img/school_icon.png">
+              <h2>{{school}}</h2>
+              <p>{{subtitle}}</p>
+          </a>
+        </div>
+
+        <div class="header-box"><p>Your Classes</p></div>
+        <div class="list classgenie-list">
+          <ion-list id="student_list" ng-model="listdata">
+          
+            <ion-item class="item-avatar item item-thumbnail-left image-item" ng-repeat="item in items"  
+            on-tap="openClassDetail()">
+            <img ng-src="{{imagePath}}class/{{item.image}}" /> 
+            <h2 ng-model="className">{{item.class_name}} </h2>
+            <h3 ng-model="classID" style="display:none">{{item.class_id}}</h3> 
+          </ion-item>
+        </ion-list>
+      </div>
+      <div> <a class="item image-item item-margin" on-tap="addclass()">
+
+        <span class="ion-android-add-circle add-class_1"></span>
+        <h2 class="add-inline">Add a new class</h2>
+
+      </a></div>
+
+      <div class="list classgenie-list">
+        <div class="header-box"><p>Next steps</p></div>
+        <a class="item item-thumbnail-left image-item" on-tap="shareSocial()" >
+          <img ng-src="img/refer_teacher.png">
+          <h2 >Refer a teacher</h2>
+          <p>introduce classgenie</p>
+        </a>
+      </div>
+
+       <div class="list classgenie-list">
+       <!-- <a class="item item-thumbnail-left image-item" on-tap="eventMgmt()" >-->
+       <a class="item item-thumbnail-left image-item" on-tap="eventList()">
+          <img ng-src="img/event_management.png">
+          <h2>Event management</h2>
+        </a>
+      </div>
+      <!-- <div class="list classgenie-list">
+      <a class="item item-thumbnail-left image-item" on-tap="openslide()">
+          <img ng-src="img/event_management.png">
+          <h2>open slide</h2>
+        </a>
+      </div> -->
+      
+    </ion-content>
+  </ion-modal-view>
+

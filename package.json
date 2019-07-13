@@ -1,0 +1,41 @@
+{
+  "name": "gruntproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "dependencies": {
+    "cordova-android": "^6.3.0",
+    "cordova-plugin-photokandy-video-thumbnail": "~2.1.0",
+    "datepicker-for-ionic": "^1.1.7",
+    "grunt": "^1.0.1"
+  },
+  "devDependencies": {
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.1",
+    "grunt-contrib-uglify": "^2.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "",
+  "cordovaPlugins": [
+    "cordova-plugin-media-capture",
+    "cordova-plugin-network-information",
+    {
+      "variables": {
+        "SENDER_ID": "400489855724"
+      },
+      "locator": "phonegap-plugin-push",
+      "id": "phonegap-plugin-push"
+    }
+  ],
+  "cordovaPlatforms": [
+    "android"
+  ],
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-photokandy-video-thumbnail": {}
+    }
+  }
+}

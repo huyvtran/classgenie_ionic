@@ -1,0 +1,42 @@
+<ion-side-menus enable-menu-with-back-views="false">
+
+
+<ion-side-menu-content>
+
+<ion-nav-bar class="bar-positive new-bar">
+<!-- 
+<ion-nav-back-button side="left" class="new_back"> -->
+<a href="javascript:void(0);" on-tap="backstudent_das()" class="new_back_btn col">
+    <div class="ion-android-arrow-back"></div>   
+    </a>
+<!-- </ion-nav-back-button> -->
+
+<ion-nav-buttons side="right">
+<button class="button button-icon button-clear ion-navicon" menu-toggle="right">
+</button>
+</ion-nav-buttons>
+</ion-nav-bar>
+
+<ion-nav-view name="menuContent1">
+
+<ion-view view-title="">
+</ion-view>
+</ion-nav-view>
+</ion-side-menu-content> 
+
+<ion-side-menu side="right">
+    <ion-header-bar class="header_bar">
+      <h1 class="title">Student's Class</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <ion-item  ng-repeat="item in mylist_data track by $index" > 
+        <div on-tap="getclassid_assignment()" menu-close>
+       <p ng-model="classid" value="{{item.class_list.class_id}}"   >{{item.class_list.class_name}}</p>
+       <p style="display:none"> {{item.class_list.class_id}} </p></div>
+       </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-view>
+</ion-side-menus>

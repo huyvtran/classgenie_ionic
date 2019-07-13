@@ -1,0 +1,135 @@
+<style>
+video::-internal-media-controls-download-button {
+    display:none;
+}
+
+video::-webkit-media-controls-enclosure {
+    overflow:hidden;
+}
+
+video::-webkit-media-controls-panel {
+    width: calc(100% + 30px); 
+}
+</style>
+<ion-modal-view class ="model-width">
+    <ion-header>
+        <div class="bar bar-header new-header back-btn">
+            <p class="col col-85"> &nbsp; &nbsp;  Story</p>
+
+        </div>
+    </ion-header>
+
+    <ion-content class="margin-top"   >
+     <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+      </ion-refresher>
+        <div class="tabs-striped tabs-top tabs-color-light new-tab">
+        </div>
+
+        <br /> <br />
+        <br /> <br />
+<div ng-if="stud_status==0">
+<p>Please get your account approval from your parents first!</p> 
+</div>
+<div ng-if="stud_status==1">
+        <div class="col button-pad-lr12p ">
+            <button class="button button-positive new_tab_btn disable-user-behavior award_tab" id="removeClass1" ng-click="showclassstory()">Class Story
+            </button>
+
+            <button class="button button-positive new_tab_btn disable-user-behavior" ng-class="myClass" ng-click="showpendingstory()" id="removeClass2">
+                Your Story
+            </button>
+
+            <button class="button button-positive new_tab_btn disable-user-behavior" ng-class="myClass" ng-click="showPopup()" id="removeClass3">
+                My Story
+            </button>
+
+           
+
+        </div>
+
+        <div>
+            <div>
+
+                <div class="col-100 new-list">
+                    <ion-list  ng-model="listdata">
+                    <center><p>{{failure}}</p></center>
+                    <center>
+  <label class="item item-input" style="width:98%;margin-bottom:10px;">
+                <i class="icon ion-search"></i>
+                <input type="text" placeholder="Search"  ng-model="searchKeyword">
+              </label></center>
+                        <ion-item class="list card top-position" ng-repeat="item in items| filter:removeDollerCharFilter | filter:searchKeyword  track by $index" margin="10px" class="margin_new_top"> 
+
+
+                            <div class="item item-avatar ">
+                                <img ng-src="{{imagePath}}profile_image/{{item.teacher_name.image}}" ng-if="item.teacher_name.image!=''">
+                                 <img ng-src="img/chat_user.png" ng-if="item.teacher_name.image==''">
+                                <h2>{{item.teacher_name.name}}<span>
+                                <span class="ion-arrow-right-c"></span>
+                                <span>{{item.student_name.name}}</span>
+                                </h2>
+                                
+                                <p class="example"><span class="ion-arrow-right-c"></span>{{item.class_name.class_name}}&nbsp;&nbsp;({{item.class_name.grade}})</p>
+                                <div class="right-date"><p> {{item.date}}</p></div>
+                            </div>
+
+
+                            <div class="item item-body">
+                                <div ng-if="item.ext == 'jpg'">
+
+                                    <img class="full-image" ng-src="{{imagePath}}{{item.image_folder}}/{{item.image}}?rand_num" >
+
+
+                                </div>
+
+                                <div ng-if="item.ext == 'mp4' || item.ext == '3gp'">
+                                    <video ng-src="{{video(item.image)}}" class="centerme" controls="controls" ></video>
+                                </div>
+                                 <!-- <div ng-if="item.ext == 'mp4' || item.ext == '3gp'">
+                                 <video controls="controls" preload="metadata" autoplay="off" webkit-playsinline="webkit-playsinline" class="videoPlayer centerme" ><source src="{{video(item.image)}}" type="video/mp4"/></video>
+                                 </div> -->
+
+
+
+
+
+                                <p>
+                                    {{item.message}}
+                                </p>
+
+                                <div class="likes-views">
+                                    <p on-tap="likes()"><span class="ion-heart"></span><span id="like_icon_{{$index + 1}}">{{item.likes}}</span> Likes</p>
+                                    <p><span class="ion-checkmark-circled"></span>{{item.comment_count}} Comments</p>
+                                    <h3 style="display:none">{{item.id}}</h3> 
+                                    <p style="display:none">{{item.class_id}}<p>
+                                </div>
+
+
+                                <div>
+                                    <p class="comment-box">
+                                        <input type="hidden" id="hid_liked_status_{{$index + 1}}" value="{{item.liked}}" />
+                                        <a href="javascript:void(0);" class="subdued {{item.liked == 1 ? 'clicked-color': ''}}" on-tap="openLikePage('{{$index + 1}}')" id="liked_id_{{$index + 1}}"><span class="ion-heart"></span></a>
+                                        <a href="javascript:void(0);" class="subdued" on-tap="openCommentPage()"><span class="ion-chatbox-working"></span><p style="display:none">{{item.class_name}}<p>
+                                        <p style="display:none">{{item.class_id}}<p>
+                                        </a>
+                                    </p>
+                                    <!--<div class="icon-right" on-tap="openCommentMenu($event)">
+                                        <span class="ion-android-more-vertical"></span>-->
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </ion-item>
+                    </ion-list> 
+
+                    <div class="clearfix"></div>
+                    <center><button class="more-btn new-more" ng-hide="storycount" on-tap="pagging()">More</button></center> 
+                </div></div>
+        </div>
+</div>
+    </ion-content>
+</ion-modal-view>
+

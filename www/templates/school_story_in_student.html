@@ -1,0 +1,76 @@
+<style>
+video::-internal-media-controls-download-button {
+    display:none;
+}
+
+video::-webkit-media-controls-enclosure {
+    overflow:hidden;
+}
+
+video::-webkit-media-controls-panel {
+    width: calc(100% + 30px); / Adjust as needed /
+}
+</style>
+<ion-modal-view class ="model-width" >
+<ion-header>
+    <div class="bar bar-header new-header back-btn">
+    <a href="javascript:void(0);" on-tap="back_classstory()">
+    <div class="ion-android-arrow-back back-icon col"></div></a>
+    <p class="col col-85">{{schoolName}}</p>
+   <!-- <div class="dropdown-icon col-25">
+      <a href="javascript:void(0);" on-tap="openSideMenu($event)"><div class="ion-android-more-vertical col"></div></a>
+      </div> -->
+    </div>
+
+  </ion-header>
+  <ion-content>
+  <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+      </ion-refresher>
+   <div class="item item-input post-item margin_bottom">
+        <span class="ion-android-person post-icon"></span>
+        <a href="javascript:void(0);" class="" >What's happening in your kid's school?</a>
+        
+   </div> 
+ <ion-list  ng-model="listdata"> 
+ <ion-item ng-repeat="item in items track by $index" class="margin_new_top"> 
+ 
+      <div class="item item-avatar">
+        <img ng-src="img/status_profile.png">
+        
+        <p class="example"><span></span>{{school_name}}</p>
+        <h2 class="ion-arrow-right-c"> {{ item.teacher_name }} </h2>
+        <div class="right-date"><p>{{item.date}}</p></div>
+      </div>
+      
+
+      <div class="item item-body">
+          <div ng-if="item.ext =='jpg'">
+          <img class="full-image" ng-src="{{imagePath}}school_stories/{{removeDollerChar(item.image_new)}}" >
+         
+          </div>
+          
+            <div ng-if="item.ext =='mp4' || item.ext =='3gp'">
+            <video ng-src="{{video(item.image)}}" class="centerme" controls="controls" ></video>
+            </div>
+            <p>
+            {{item.message}}
+            </p>
+        
+           
+            
+       </div>
+      </ion-item>
+      </ion-list>
+      <div class="clearfix"></div>
+      <br><br><br>
+       <center><button class="more-btn" on-tap="pagging()" ng-if="postCount>=10">More</button></center> 
+     
+       
+  </ion-content>
+</ion-modal-view>
+
+ 
+ 
+

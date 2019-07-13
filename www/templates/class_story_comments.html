@@ -1,0 +1,93 @@
+<style>
+video::-internal-media-controls-download-button {
+    display:none;
+}
+
+video::-webkit-media-controls-enclosure {
+    overflow:hidden;
+}
+
+video::-webkit-media-controls-panel {
+    width: calc(100% + 30px); / Adjust as needed /
+}
+</style>
+<ion-modal-view class ="model-width">
+<ion-header>
+    <div class="bar bar-header new-header back-btn">
+    <a href="javascript:void(0);" on-tap="comment_goBack()">
+    <div class="ion-android-arrow-back back-icon col"></div></a>
+  <p class="col-65">{{teacher_name}}</p>
+  </div>
+  </ion-header>
+
+  <ion-content>
+  <div class="margin_new_top item in items ">
+  <div class="item item-avatar">
+    <img ng-src="{{imageurl}}">
+    <h2>{{teacher_name}}</h2>
+    <p class="example"><span class="ion-arrow-right-c"></span>{{nameOfClass}}</p>
+    <div class="right-date"><p> </p></div>
+  </div>
+  <div class="item item-body new_item_body">
+    <img class="full-image" ng-if="ext=='jpg'" ng-src="{{path_url}}" >
+
+    <div ng-if="ext =='mp4' || ext =='3gp'">
+            <video ng-src="{{path_url}}" class="centerme" controls="controls" >
+            </video>
+
+            </div>
+
+    <p>
+      {{message}}
+    </p>
+    
+    
+     <div class="likes-views">
+     <p><span class="ion-heart" on-tap="likes()"></span>{{like}} Likes</p>
+     <p><span class="ion-checkmark-circled"></span>{{commentCount}} Comments</p>
+     <h3 style="display:none">{{postId}}</h3> 
+     </div>
+      <div class="icon-right">
+    <span class="ion-android-more-vertical" on-tap="openCommentMenu($event)" ng-if="pagestatus!='tabpending'"></span>
+    </div> 
+    </div>
+
+  <ion-list  ng-model="listdata">  
+    <ion-item  ng-repeat="item in items | filter:removeDollerCharFilter track by $index" class="user_commet_box item-text-wrap">
+    
+      <a class="item item-thumbnail-left image-item new_image_item invte_item comments_border comment_img" >
+    
+      <img ng-src="{{imagePath}}/profile_image/{{item.name.image}}?{{randNo}}" class="right_user_img" ng-if="item.name.image!=''">
+  
+      <img  ng-src="img/chat_user.png" class="user_right" ng-if="item.name.image==''">
+      
+      <span class="user_neme_comment" ng-if="item.name.name!=''">{{item.name.name}}</span>
+      <span class="user_neme_comment" ng-if="item.name.name==''">{{item.student_name}}</span>
+       <ul class="row">
+      <li class="col col-50 col-25"><span class="item-text-wrap">{{item.comment}}</span>
+       <p style="display:none">{{item.id}}</p> 
+      </li>
+      <li class="col col-top"> <button class="button right" on-tap="delete_comment()" >Delete</button></li>
+      
+    </ul>
+      
+     
+      
+      
+      </a>
+    </ion-item>
+    </ion-list> 
+    </div> 
+ 
+    </ion-content>
+  
+    <ion-footer-bar keyboard-attach class="bar-stable item-input-inset footer_chat">
+      <label class="item-input-wrapper chat_wrapper">
+        <input type="text"  class="chat_text" placeholder="Add Your Comment" on-return="sendMessage(); closeKeyboard()" ng-model="data.message" on-focus="inputUp()" on-blur="inputDown()" />
+      </label>
+      <button class="button button-clear" on-tap="sendMessage()">
+        <i class="ion-android-send"></i>
+      </button>
+    </ion-footer-bar>
+</ion-modal-view>
+

@@ -1,0 +1,53 @@
+<style>
+video::-internal-media-controls-download-button {
+    display:none;
+}
+
+video::-webkit-media-controls-enclosure {
+    overflow:hidden;
+}
+
+video::-webkit-media-controls-panel {
+    width: calc(100% + 30px); / Adjust as needed /
+}
+</style>
+<ion-modal-view class ="model-width">
+  <ion-header>
+    <div ng-hide="classroom" class="bar bar-header new-header back-btn">
+      <a href="javascript:void(0);" on-tap="backPost()"> 
+        <div class="ion-close back-icon col"></div></a>
+        <p class="col col-65">Class Story</p>
+        <div class="dropdown-icon col-25">
+
+        </div>
+      </div>
+
+    </ion-header>
+    <ion-content class="margin-top"  >
+    <form name="formPost" novalidate>
+      
+      <div class="uplod-image add_pic" on-tap="showPopup()" >
+        <a href="javascript:void(0);" >Add photo or video</a>
+        <img class="image_border" ng-src="{{imgURI}}" ng-if="selection==1 || selection==2">
+        <video ng-src="{{videoPath}}" ng-if="selection==3" class="centerme image_border" controls="controls" ></video>
+      </div>
+
+      <!-- <div class="uplod-image add_pic">
+          <video ng-src="{{videoPath}}" ng-if="selection==3" class="centerme image_border" controls="controls" ></video>
+      </div> -->
+     
+      <div class="col col-100">
+        <input type="text" placeholder="What's happening in your classroom?"   class="addgroup_search mynew-input" ng-model="postData.message"></div>
+        <div class="list">
+          <a href="javascript:void(0);" class="button button-block button-positive save-btn new-class-btn" on-tap="post()">Save Post</a>
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+</ion-content>
+</ion-modal-view>
+
+
+

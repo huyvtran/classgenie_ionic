@@ -1,0 +1,24 @@
+<ion-modal-view class ="model-width">
+  <ion-header>
+<div class="bar bar-header new-header back-btn">
+    <a href="" on-tap="goBack_likePage()">
+    <div class="ion-android-arrow-back back-icon"></div></a>
+    <p class="col-90">Likes</p>
+    </div>
+</div> 
+      </ion-header>
+<ion-content>
+     <div class="list add-student">
+          <ion-list id="student_list" ng-model="listdata">
+            <ion-item class="item-avatar" ng-repeat="item in like_list_items track by $index"  
+            >
+            <img ng-src="{{imagePath}}profile_image/{{item.name.image}}?{{randno}}" ng-if="item.name.image!==''"/> 
+            <img ng-src="img/chat_user.png" ng-if="item.name.image==''" /> 
+            <h2 ng-model="className" class="class_name_heading" ng-if="item.name!=''">{{item.name.name}} </h2>
+            <h2 ng-model="className" class="class_name_heading" ng-if="item.student_name!=''">{{item.student_name}} </h2>
+            </ion-item>
+          </ion-list>
+      </div>
+</ion-content>
+</ion-modal-view>
+      

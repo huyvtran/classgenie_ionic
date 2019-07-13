@@ -1,0 +1,47 @@
+<ion-modal-view ng-controller="dateController">
+<ion-header>
+       <div class="bar bar-header new-header back-btn">
+<a href="javascript:void(0);" on-tap="close()"><div class="left-icon">
+    <div class="ion-android-arrow-back back-icon col"></div>   
+    </div></a>
+    <div class="addclass"><center>Select Date Range</center></div>
+</div>
+</ion-header>
+<br><br><br>
+<div class="date_view">
+<div class="col col-50 left_flot">
+                <div class="list list-inset search_input_new">
+              <label class="item item-input">
+                <i class="icon ion-ios-calendar-outline placeholder-icon"></i>
+                <input type="Date" placeholder="From" value="" class="form-control" ng-model="currentDate" ng-change="datePickerCallback($this)" style="padding-right:0px !important">
+              </label>
+            </div>
+            <input type="hidden" id="date1">
+            </div>   
+<!-- <label class="date_font">From</label><ionic-datepicker min="minDate" max="maxDate" date="currentDate" callback="datePickerCallback">
+    <button class="button button-block button-positive date_btn"> {{ currentDate | date:'MMMM/dd/yyyy' }} </button>
+    <input type="hidden" id="date1">
+</ionic-datepicker> -->
+<div class="col col-50 left_flot">
+                <div class="list list-inset search_input_new">
+              <label class="item item-input">
+                <i class="icon ion-ios-calendar-outline placeholder-icon"></i>
+                <input type="Date" placeholder="From" value="" class="form-control" ng-model="currentDate1" ng-change="datePickerCallback2($this)" style="padding-right:0px !important">
+              </label>
+            </div>
+            <input type="hidden" id="date2">
+            </div> 
+<!-- <label class="date_font">To</label><ionic-datepicker min="minDate" max="maxDate" date="currentDate1" callback="datePickerCallback2">
+    <button class="button button-block button-positive date_btn"> {{ currentDate1 | date:'MMMM/dd/yyyy' }} </button>
+    <input type="hidden" id="date2">
+</ionic-datepicker> -->
+</div>
+<div class="sel_date">
+<div class="clear"></div>
+<button ion-button color="secondary" class="button button-positive button-outline" on-tap="choosedate(1)">Ok</button>
+<button ion-button color="danger"  class="button button-assertive button-outline" on-tap="choosedate(0)">Cancel</button>
+
+<!-- <a href="javascript:void(0)" "></a>&nbsp;&nbsp;&nbsp;
+<a href="javascript:void(0)""></a> -->
+</div>
+</ion-modal-view> 

@@ -1,0 +1,97 @@
+<ion-modal-view class ="model-width newciassn">
+
+<ion-header>
+<div class="bar bar-header new-header back-btn event_name_col">
+ <a href="javascript:void(0)"> 
+                <div class="ion-android-arrow-back back-icon col" ng-click="back()"></div>
+            </a>
+  <span>Event &nbsp;&nbsp;{{event_name}}</span>
+</div>
+
+</ion-header>
+  <ion-content class="event-col">
+  <div class=" top-nb">
+   Event Name
+   <input type="text" class="addgroup_search mynew-input" id="eventname" ng-model="event_name">  
+ 
+    <label>Description
+                       <br><br> <textarea class="addgroup_search mynew-input" id="eventdesc" ng-model="event_description"></textarea>
+                    </label>
+    
+     <br>
+     </div>
+  <div class="item item-divider header_detail">
+    Event Details    
+  </div>
+<div class="list add-student">  
+  <div class="row">
+    <div class="col col-100">
+         <label class="">
+       No Of volunteer
+        <select class="addgroup_search item-select select_volunteer" id="noofval" ng-model="valunteerValue12" ng-change="selectNoofValunteer(valunteerValue12)" ng-options="noofvalunteer for noofvalunteer in no_of_valunteer"></select>
+     </label>
+   </div>
+ </div>
+
+  <div class="row" id="rowResponsibilty">
+    <div class="col col-100" ng-if="valunteerValue12 > 0" >
+        <a href="javascript:void(0);" ng-click="openResponsibilty()" ng-model="volunteer_responsibility" class="resp-btn">Responsibilty</a>
+        <!-- <input type="hidden" id=""> -->
+   </div>
+ </div>
+<div class="row">
+  <div class="col col-100">
+    <label class="">
+     Schedule
+   </label>
+</div>
+</div>
+<div id="divMainContainer" style="display:none;">
+            <span class="input-label">Date</span>
+            <label class="item item-input">
+                  <i class="icon ion-ios-calendar-outline placeholder-icon"></i>
+                  <input type="Date" placeholder="From" value="" class="form-control" ng-model="loginData.mcurrentDate" ng-change="mdatePickerCallback($this)" style="padding-right:0px !important">
+            </label>
+            <input type="hidden" id="mdate" />
+        </div>
+
+ <!-- {{event_start_date | date:'yyyy-MM-dd'}} -->
+      <div class="padlr10p">
+        <div class="col col-100">
+            <span class="input-label">Start Date</span>
+            <label class="item item-input">
+                  <i class="icon ion-ios-calendar-outline placeholder-icon"></i>
+                  <input type="Date" placeholder="From" value="" class="form-control" ng-model="example_date.value_start_date" ng-change="datePickerCallback($this)" style="padding-right:0px !important">
+            </label>
+            <span class="input-label">End Date</span>
+            <label class="item item-input">
+                  <i class="icon ion-ios-calendar-outline placeholder-icon"></i>
+                  <input type="Date" placeholder="From" value="" class="form-control" ng-model="example_date.value_end_date" ng-change="datePickerCallback($this)" style="padding-right:0px !important">
+            </label>
+            <input type="hidden" id="date" />
+        </div>
+        </div>
+ <!--   {{event_start_time}} -->
+
+      <div class="row">
+        <div class="col col-30">
+          <label class="">Start Time </label>
+             <input type="time" ng-model="example_time.value_start_time"/>
+       </div>
+          <div class="row">
+    
+      <div class="col col-30">
+        <label class="">End Time </label>
+         <input type="time" ng-model="example_time.value_end_time" />
+      </div>
+      </div>
+</div>
+<div class="row">
+  <div class="new-class-btn">
+    <a href="" class="button button-block button-positive save-btn new-class-btn" on-tap="edit_event_submit()">Submit</a>
+</div>
+</div>
+</div>
+</div>
+</ion-content>
+</ion-modal-view>

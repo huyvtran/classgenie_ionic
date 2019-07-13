@@ -1,0 +1,25 @@
+<ion-modal-view class ="model-width">
+<ion-header>
+<div class="bar bar-header new-header back-btn">
+
+<a href="javascript:void(0)" on-tap="closepopup()">
+<div class="ion-close back-icon col" >
+</div></a>
+
+<p class="col col-65">{{groupname}}</p><a href="javascript:void(0)" on-tap="opengroupmenu()"><div class="dropdown-icon" ><button class="ion-android-more-vertical" ></button></div></a></div></div>
+</ion-header>
+<ion-content>
+<ion-list>
+<br /><br /> <br /> <br />
+
+<div class="row responsive-sm tab_content">
+<div class="col col-25 my-class-box new_box" ng-repeat="item in values track by $index" on-tap="showAwardMessage()"><a href=""> <div ng-if="item.pointweight > 0" class="redius_cont color-change"><b>{{item.pointweight}}</b></div>
+                <div ng-if="item.pointweight == 0" class="redius_cont"><b>{{item.pointweight}}</b></div>
+                <div ng-if="item.pointweight < 0" class="redius_cont change-color-neg"><b>{{item.pointweight}}</b></div>
+		<img ng-src="{{imagePath}}student/{{item.image}}"><br><p>{{item.name}}</p></a></div></ion-list></div>
+        <br />
+<div class="col col-100" style="text-align:center;">
+         <button class="button button-positive award_btn" on-tap="openGroupReward()">
+            Award group
+          </button></div></ion-content>   
+</ion-modal-view>

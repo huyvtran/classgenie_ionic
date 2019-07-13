@@ -1,0 +1,28 @@
+<ion-modal-view class ="model-width">
+<ion-header>
+    <div class="bar bar-header new-header back-btn">
+    <a href="javascript:void(0);" class="" on-tap="closeEditResponsibiltyModal();"> 
+       <div class="ion-close back-icon col"></div>
+    </a>
+    <div class="addclass col-75">Edit Responsibilty</div>   
+</div>
+</ion-header>
+<ion-content>
+  <div class="list add-student">
+  <div class="row">
+  <div class="col col-100">
+  <form name="formEditResponsibilty" id="formEditResponsibilty">
+  <div class="list">
+     <div class="item item-input-inset new_add_box">
+            <input type="text" placeholder="Responsibility" id="edit_responsibilty" ng-model="object_name" ng-required="true">           
+            <button class="button button-small add_btn"  on-tap="updateResponsibilty(object_name,object_id);" ng-disabled="formEditResponsibilty.$invalid">Update</button>
+  </div>
+ </div>
+ <div class="remove-new col-100">
+     <a href="javascript:void(0);"  class="remove_btn" on-tap="removeResponsibilty(object_id)">Remove responsibilty</a>
+ </div>
+ </form>
+</div>
+</div>
+</ion-content>
+</ion-modal-view>

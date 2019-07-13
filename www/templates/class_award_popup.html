@@ -1,0 +1,39 @@
+<ion-modal-view class ="model-width">
+  <ion-content >
+    <div class="bar bar-header new-header back-btn">
+      <a href="javascript:void(0);" class="back_btn_icon" on-tap="close_classreward()"><i class="ion-close"></i></a>
+      <p class="col col-65">Give feedback to Whole class</p>
+
+    </div><br /><br /><br />
+    <div class="col feedback_tab">
+      <button class="button button-positive new_tab_btn" id="posit" on-tap="positiveButton()" ng-class="posbutton">Positive
+      </button>
+
+      <button class="button button-positive new_tab_btn" id = "need" on-tap="needButton()" ng-class="needbutton">
+        Needs work
+      </button>
+    </div>
+    <div class="row responsive-sm tab_content" id="positive" ng-show="positive">
+      <div class="col col-25 my-class-box new_box" ng-repeat="item in class_award_items track by $index" on-tap="wholeClassReward()">
+        <a href="javascript:void(0);">
+          <div class="redius_cont color-change">{{item.pointweight}}</div>
+          {{test}}
+          <img ng-src="{{imagePath}}skill/{{item.image}}"><br>
+          <p>{{item.name}}</p>{{test}}
+          <p style="display:none">{{item.id}}</p>
+        </a>{{test}}
+      </div></div>
+
+      <div class="row responsive-sm tab_content" id="needwork" ng-show="needwork">
+        <div  class="col col-25 my-class-box new_box" ng-repeat="item in needwork_items track by $index" on-tap="wholeClassReward()">
+          <a href="javascript:void(0);">
+            <div class="redius_cont change-color-neg">{{item.pointweight}}</div>
+            <img ng-src="{{imagePath}}skill/{{item.image}}" ><br>
+            <p>{{item.name}}</p>
+          </a>
+        </div></div>
+
+      </ion-content>
+    </ion-modal-view>
+
+

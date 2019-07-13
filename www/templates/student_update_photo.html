@@ -1,0 +1,20 @@
+<ion-modal-view class ="model-width">
+<ion-header>
+   <div class="bar bar-header new-header back-btn">
+       <a href="javascript:void(0)" on-tap="update_photo_goBack()"><div class="ion-android-arrow-back back-icon col"></div></a>
+    </div>
+</ion-header>
+ <ion-content class="margin-top"><br>
+      <div class="uplod-image uplod-avtar">
+      <img ng-src="{{photo_image}}"  on-tap="photoPopup()" width="170" height="110" />
+      </div>
+      <div class="list">
+        <div class="profile feild responsive-sm"> 
+           <form name="formClass" novalidate>
+              <input type="hidden" ng-model="photo_image_val" ng-required="true">
+              <button class="button button-block button-positive save-btn" ng-disabled="formClass.$invalid"  on-tap="updatePhoto()">Update</button>
+           </form>
+        </div>
+      </div>
+ </ion-content>
+ </ion-modal-view>          

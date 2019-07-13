@@ -1,0 +1,40 @@
+<ion-modal-view class ="model-width">
+
+  <ion-header>
+  
+  <ion-header>
+   <div class="bar bar-header new-header back-btn">
+      <a href="javascript:void(0);" on-tap="editPostback()">
+            <div class="back-icon left-icon ion-close col">
+			</div></a>
+      <p class="col col-65">School Story</p>
+      <div class="dropdown-icon col-25">
+      </div>
+      </div>
+  </ion-header>
+  
+    
+     
+      <ion-content class="margin-top"  >
+
+        <div class="uplod-image add_pic" on-tap="showPopup()">
+        <a href="javascript:void(0);" >Add photo or video</a><br>
+         <img class="image_border" ng-src="{{imgURI}}"/>
+        </div>
+        <br>
+        <div class="col-md-100 post_input">
+        <input type="text" placeholder="What's happening in your classroom?"   class="addgroup_search mynew-input" ng-model="postData.message"></div>
+          <div class="list">
+            <a href="javascript:void(0);" class="button button-block button-positive save-btn new-class-btn" on-tap="post()">Save Post</a>
+          </div> 
+          <div class="row">
+            <div class="col col-100">
+              <div>
+
+               
+              </div></div>
+            </div>
+          </div>
+        </div>
+      </ion-content>
+    </ion-modal-view>

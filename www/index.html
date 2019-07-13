@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html ng-app="starter">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+<title>Classgenie</title>
+<script src="js/common/env.js"></script>
+<script type="text/javascript" src="js/services/fusioncharts.js"></script>
+<script type="text/javascript" src="js/services/fusioncharts.charts.js"></script>
+<script type="text/javascript" src="js/services/fusioncharts.theme.fint.js"></script>
+<script type="text/javascript">
+   if(ENVIRONMENT == 'development'){
+   	    document.write('<link href="lib/ionic/css/ionic.css" rel="stylesheet">');
+        document.write('<link href="css/mystyle.css" rel="stylesheet">');
+        document.write('<link href="lib/datepicker-for-ionic/dist/datepicker.css" rel="stylesheet">');
+	}else{
+        document.write('<link href="lib/ionic/css/ionic.min.css" rel="stylesheet">');
+        document.write('<link href="css/mystyle.min.css" rel="stylesheet">');
+        document.write('<link href="build/release/css/datepicker.min.css" rel="stylesheet">');
+	}
+</script>
+<link href="lib/animate.css/animate.min.css" rel="stylesheet">
+<!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+<link href="css/ionic.app.css" rel="stylesheet">
+-->
+
+<!-- ionic/angularjs js -->
+<script src="lib/ionic/js/ionic.bundle.js"></script>
+<script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
+    <script src="lib/datepicker-for-ionic/dist/templates.min.js"></script>
+<script src="lib/datepicker-for-ionic/dist/ionic-datepicker.min.js"></script>
+<link href="lib/ionic-toast/dist/style.css" rel="stylesheet"> 
+<!-- path to ionic/angularjs js -->
+<script src="lib/ionic-toast/dist/ionic-toast.js"></script>
+
+<!-- cordova script (this will be a 404 during development) -->
+
+<!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
+
+<script src="cordova.js"></script>
+
+<script src="js/services/services.js"></script>
+
+<!-- JS Library -->
+<script type="text/javascript" src="lib/ionic/js/jquery.min.js"></script>
+<script src="js/services/ngStorage.min.js"></script>
+<script src="js/services/ng-cordova.min.js"></script>
+<script src="js/services/angular-route.min.js"></script>
+<script src="lib/angular-base64/angular-base64.js"></script>
+
+
+
+
+<!-- application js -->
+<script type="text/javascript">
+
+ if(ENVIRONMENT == 'development'){
+	  document.write('<script src="js/common/loader.js"><\/script>');
+	  document.write('<script src="js/common/ajaxloader.js"><\/script>');
+	  document.write('<script src="js/common/global.js"><\/script>');
+	  document.write('<script src="js/app.js"><\/script>');
+	  document.write('<script src="js/controllers/directives.js"><\/script>');
+}
+else
+{
+      document.write('<script src="build/release/js/applicationtop.min.js"><\/script>');
+}
+</script>
+<script src="lib/ionic/js/messages.min.js"></script>
+<script type="text/javascript">
+	document.addEventListener("DOMContentLoaded", function(event) {
+        var element = document.getElementById("page-loading");
+        element.parentNode.removeChild(element);
+        $('#page-loading').fadeOut('slow');
+    });
+</script>
+
+</head>
+
+<body>
+
+<div id="page-loading">
+     <img style="display:block; margin:0 auto;" src="img/loading.gif">
+</div>
+
+<ion-nav-view animation="fade-in-out">
+
+</ion-nav-view>
+<!-- Chat Page -->
+<script src="js/services/socket.io-1.2.0.js"></script>
+<script src="js/services/moment.js"></script>
+<script src="js/services/livestamp.js"></script>
+<!-- Chat Page -->
+<script type="text/javascript">
+	document.write('<!-- application level js -->');
+	document.write('<script src="js/services/store.js"><\/script>');
+
+	document.write('<!-- Login Page -->');
+	document.write('<script src="js/controllers/login.js"><\/script>');
+
+	document.write('<!-- Signup Page -->');
+	document.write('<script src="js/controllers/signup.js"><\/script>');
+
+	document.write('<!-- Teacher signup Page -->');
+	document.write('<script src="js/controllers/teachersignup.js"><\/script>');
+	
+	document.write('<!-- Parent signup Page -->');
+	document.write('<script src="js/controllers/parentsignup.js"><\/script>');
+	
+	document.write('<!-- Student signup Page -->');
+	document.write('<script src="js/controllers/studentsignup.js"><\/script>');
+	
+	document.write('<!-- Dashboard Page -->');
+	document.write('<script src="js/controllers/dasboard.js"><\/script>');
+
+	document.write('<!-- School Page -->');
+	document.write('<script src="js/controllers/school.js"><\/script>');
+
+	document.write('<!-- School Teacher List Page -->');
+	document.write('<script src="js/controllers/schoolteacherlist.js"><\/script>');
+
+	document.write('<!-- Add Classroom Page -->');
+	document.write('<script src="js/controllers/classroom.js"><\/script>');
+	
+	document.write('<!-- Add profile Page -->');
+	document.write('<script src="js/controllers/profile.js"><\/script>');
+	
+	document.write('<!-- Add Class Page -->');
+	document.write('<script src="js/controllers/addclass.js"><\/script>');
+	
+	document.write('<!-- Add Student Page -->');
+	document.write('<script src="js/controllers/addstudent.js"><\/script>');
+
+	document.write('<!-- Add swipe tab controller -->');
+	document.write('<script src="js/controllers/tabcontroller.js"><\/script>');
+	
+	document.write('<!-- Add service for sharing data -->');
+	document.write('<script src="js/services/dataservice.js"><\/script>');
+	
+	document.write('<!-- Add Student Page -->');
+	document.write('<script src="js/controllers/award_popup.js"><\/script>');
+	
+	document.write('<!-- Edit skill  Page -->');
+	document.write('<script src="js/controllers/editskills.js"><\/script>');
+	
+	document.write('<!-- Add skill  Page -->');
+	document.write('<script src="js/controllers/addskil.js"><\/script>');
+	
+	document.write('<!-- edit single skill  Page -->');
+	document.write('<script src="js/controllers/single_editskill.js"><\/script>');
+	
+	document.write('<!-- add and  student list  Page -->');
+	document.write('<script src="js/controllers/editstudentlist.js"><\/script>');
+	
+	document.write('<!-- edit student   Page -->');
+	document.write('<script src="js/controllers/editstudent.js"><\/script>');
+	
+	document.write('<!-- Class message Page -->');
+	document.write('<script src="js/controllers/classmessage.js"><\/script>');
+	
+	document.write('<!-- Chat Page -->');
+	document.write('<script src="js/controllers/chat.js"><\/script>');
+	document.write('<!-- Eof Chat Page -->');
+	
+	document.write('<!-- change password Page -->');
+	document.write('<script src="js/controllers/changepassword.js"><\/script>');
+	
+	document.write('<!-- edit class name Page -->');
+	document.write('<script src="js/controllers/edit_classname.js"><\/script>');
+	
+	document.write('<!-- edit class name Page -->');
+	document.write('<script src="js/controllers/invite_parent.js"><\/script>');
+	
+	document.write('<!-- class story Page -->');
+	document.write('<script src="js/controllers/class_story.js"><\/script>');
+	
+	document.write('<!-- check parent code Page -->');
+	document.write('<script src="js/controllers/check_parent_code.js"><\/script>');
+	
+	document.write('<!--  Group Page -->');
+	document.write('<script src="js/controllers/group.js"><\/script>');
+	
+	document.write('<!-- add group  Page -->');
+	document.write('<script src="js/controllers/add_group.js"><\/script>');
+	
+	document.write('<!--  student list Page -->');
+	document.write('<script src="js/controllers/group_student_list.js"><\/script>');
+	
+	document.write('<!--  parent class story Page -->');
+	document.write('<script src="js/controllers/classstory_parent.js"><\/script>');
+	
+	document.write('<!-- home tab controller Page -->');
+	document.write('<script src="js/controllers/hometabcontroller.js"><\/script>');
+	
+	document.write('<!-- post  Page -->');
+	document.write('<script src="js/controllers/post.js"><\/script>');
+
+	document.write('<!-- student module -->');
+	document.write('<script src="js/controllers/studcontroller.js"><\/script>');
+
+	document.write('<!-- comment post module -->');
+	document.write('<script src="js/controllers/class_story_comment.js"><\/script>');
+        
+        
+        document.write('<!-- student comment post module -->');
+	document.write('<script src="js/controllers/student_story_comment.js"><\/script>');
+
+	document.write('<!-- edit post module -->');
+	document.write('<script src="js/controllers/edit_post.js"><\/script>');
+
+	document.write('<!-- listing students for classstory module -->');
+	document.write('<script src="js/controllers/class_story_listing.js"><\/script>');
+
+	document.write('<!-- listing students for parent module -->');
+	document.write('<script src="js/controllers/your_kid.js"><\/script>');
+
+	document.write('<!-- Parents  student list for parent module -->');
+	document.write('<script src="js/controllers/parent_student_list.js"><\/script>');
+
+
+	document.write('<!-- Remove  student from list for parent module -->');
+	document.write('<script src="js/controllers/remove_student.js"><\/script>');
+
+	document.write('<!-- Attendance module in teacher module -->');
+	document.write('<script src="js/controllers/attendance_list.js"><\/script>');
+
+	document.write('<!-- Student change profile photo -->');
+	document.write('<script src="js/controllers/student_update_photo.js"><\/script>');
+
+	document.write('<!-- School Story module -->');
+	document.write('<script src="js/controllers/school_story.js"><\/script>');
+
+	document.write('<!-- School Story post module -->');
+	document.write('<script src="js/controllers/school_story_post.js"><\/script>');
+	
+	document.write('<!-- School Story comment module -->');
+	document.write('<script src="js/controllers/school_story_comments.js"><\/script>');
+
+	document.write('<!-- School Story edit post module -->');
+	document.write('<script src="js/controllers/edit_school_post.js"><\/script>');
+
+	document.write('<!-- Profile Notification Settings -->');
+	document.write('<script src="js/controllers/setting_notification.js"><\/script>');
+	document.write('<!-- parent module story comment -->');
+	document.write('<script src="js/controllers/classparent_comment.js"><\/script>');
+
+	document.write('<!-- student module notification setting -->');
+	document.write('<script src="js/controllers/setting_notification_students.js"><\/script>');
+
+	document.write('<!-- parent profile  comment -->');
+	document.write('<script src="js/controllers/parent_profile.js"><\/script>');
+
+	document.write('<!--  student story module -->');
+	document.write('<script src="js/controllers/student_story.js"><\/script>');
+
+	document.write('<!--  student story post module -->');
+	document.write('<script src="js/controllers/studentstory_post.js"><\/script>');
+
+	document.write('<!--  student story edit post module -->');
+	document.write('<script src="js/controllers/edit_studentstory.js"><\/script>');
+
+	document.write('<!--  student menu module -->');
+	document.write('<script src="js/controllers/student_menu.js"><\/script>');
+
+	document.write('<!--  student home module -->');
+	document.write('<script src="js/controllers/student_home.js"><\/script>');
+
+	document.write('<!--  student tab module -->');
+	document.write('<script src="js/controllers/tabstudentcontroller.js"><\/script>');
+
+	document.write('<!--  student tab  pending module -->');
+	document.write('<script src="js/controllers/tab_pending.js"><\/script>');
+
+	document.write('<!--  student list  module -->');
+	document.write('<script src="js/controllers/pending_story_studentlist.js"><\/script>');
+
+	document.write('<!--  student pending story  module -->');
+	document.write('<script src="js/controllers/pending_story_list.js"><\/script>');
+
+	document.write('<!--  leader  module -->');
+	document.write('<script src="js/controllers/leadersignup.js"><\/script>');
+
+	document.write('<!--  create assignment  module -->');
+	document.write('<script src="js/controllers/assignment_list.js"><\/script>');
+	
+	document.write('<!--  create editAassignment  module -->');
+	document.write('<script src="js/controllers/editAassignment.js"><\/script>');
+
+	document.write('<!--  create assignment  module -->');
+	document.write('<script src="js/controllers/create_assignment.js"><\/script>');
+        
+	document.write('<!--  edit event  module -->');
+	document.write('<script src="js/controllers/editEvent.js"><\/script>');
+
+    document.write('<!--  edit event  module -->');
+	document.write('<script src="js/controllers/event_notifications.js"><\/script>');  
+
+    document.write('<!--  create teacher List  module -->');
+	document.write('<script src="js/controllers/teacherList.js"><\/script>');
+
+	document.write('<!--  create assignment submitted list  module -->');
+	document.write('<script src="js/controllers/submittedassignmentListCtrl.js"><\/script>');
+
+    document.write('<!--  create parent assignment  module -->');
+	document.write('<script src="js/controllers/assignment.js"><\/script>')
+
+	document.write('<!--  create student assignment  module -->');
+	document.write('<script src="js/controllers/assignment_student.js"><\/script>')
+
+	document.write('<!--  send notification to parent/student in assignment module -->');
+	document.write('<script src="js/controllers/notifications.js"><\/script>')
+
+	document.write('<!--  student class list -->');
+	document.write('<script src="js/controllers/assignment_student_list.js"><\/script>')
+
+	document.write('<!--  kis list for assignment -->');
+	document.write('<script src="js/controllers/your_kid_assignment.js"><\/script>')
+
+	document.write('<!--  side menu assignment -->');
+	document.write('<script src="js/controllers/assignment_sidemenu.js"><\/script>')
+
+	document.write('<!--  side menu assignment -->');
+	document.write('<script src="js/controllers/performance_sidemenu.js"><\/script>')
+
+
+	document.write('<!--  student module comment -->');
+	document.write('<script src="js/controllers/student_comment_story.js"><\/script>');
+
+	document.write('<!--  event management -->');
+	document.write('<script src="js/controllers/event.js"><\/script>');
+
+	document.write('<!--  event management -->');
+	document.write('<script src="js/controllers/eventList.js"><\/script>');
+
+	document.write('<!--  parent event management -->');
+	document.write('<script src="js/controllers/parentevent.js"><\/script>');
+
+	document.write('<!--  view class report controller -->');
+	document.write('<script src="js/controllers/viewreportCtrl.js"><\/script>');
+
+	document.write('<!--  school story in parent module -->');
+	document.write('<script src="js/controllers/school_story_in_parent.js"><\/script>');
+
+	document.write('<!--  school story in student module -->');
+	document.write('<script src="js/controllers/school_story_in_student.js"><\/script>');
+	document.write('<!--  school story comments in parent module -->');
+	document.write('<script src="js/controllers/school_post_comment.js"><\/script>');
+
+	document.write('<!--  parent notifications settings -->');
+	document.write('<script src="js/controllers/setting_parent_notification.js"><\/script>');
+	document.write('<!-- Student performanance module -->');
+	document.write('<script src="js/controllers/studentperformance.js"><\/script>');
+
+    document.write('<!-- Slide  -->');
+	document.write('<script src="js/controllers/slide.js"><\/script>');
+
+
+    document.write('<!-- event parent module -->');
+	document.write('<script src="js/controllers/event_parent.js"><\/script>');
+
+	document.write('<!-- event student module -->');
+	document.write('<script src="js/controllers/event_student.js"><\/script>');
+	document.write('<!-- event volunteer list -->');
+	document.write('<script src="js/controllers/event_volunteer_list.js"><\/script>');
+ 
+</script>
+</body>
+</html>

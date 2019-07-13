@@ -1,0 +1,50 @@
+  <ion-modal-view class ="model-width">
+
+    <ion-header>
+      <div class="bar bar-header new-header back-btn">
+        <a href="javascript:void(0)" ng-click="student_listback()">
+          <div class="ion-android-arrow-back back-icon col"></div></a>
+          <p class="col-60">{{className}}</p>
+
+          <!-- a href="#" class="dropdown-icon"><span class="ion-android-person-add"></span></a -->
+      </div>
+      </ion-header>
+      <ion-content>
+      <br><br><br>
+      <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+      </ion-refresher>
+        <div class="list massage-list">
+          <p class="massge-heading">Student's List</p>
+
+          <a class="item item-avatar" href="javascript:void(0)" on-tap="all_pending_story()" id="lnk_all_parents">
+            <img ng-src="{{imagePath}}class/{{classImage}}">
+            <h2>Whole Class Story</h2>
+            
+          </a>
+          <div class="list classgenie-list">
+           <ion-list id="student_list" ng-model="listdata">
+          
+            <ion-item  class="item-avatar new_invite_list" ng-repeat="item in items track by $index"  
+            on-tap="open_pending_story()">
+           <img ng-src="{{imagePath}}/student/{{item.image}}"/>
+            <h2 ng-model="className">{{item.name}} <br>
+            </h2>
+            
+             <h3 ng-model="classID" style="display:none">{{item.student_no}} </h3>
+             <h3 ng-model="classID" style="display:none">{{item.parent_ac_no}} </h3>
+             <h3 style="display:none" >{{classId}}</h3>
+          </ion-item>
+        </ion-list>
+      </div>
+       <div id="chat_list" style="display:none;">
+          </div>
+
+        </div>
+       </ion-content>
+  </ion-modal-view>
+
+      
+
+   

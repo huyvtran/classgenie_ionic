@@ -1,0 +1,28 @@
+<ion-modal-view class ="model-width">
+<ion-header>
+    <div class="bar bar-header new-header back-btn">
+    <a href="javascript:void(0)" class="" on-tap="closeResponsibiltyModal();"> 
+       <div class="ion-close back-icon col"></div>
+    </a>
+    <div class="addclass col-75">Response List</div>
+</div>
+</ion-header>
+<ion-content>
+<div class="list add-student">
+<div class="row">
+  <div class="col col-100">
+      <ion-list>
+         <ion-checkbox ng-model="filter.red">Red</ion-checkbox>
+         <ion-checkbox ng-model="filter.yellow">Yellow</ion-checkbox>
+         <ion-checkbox ng-model="filter.pink">Pink</ion-checkbox>
+         <ion-checkbox ng-model="filter.blue">Blue</ion-checkbox>
+     </ion-list>
+  </div>
+</div>
+<div class="row">
+  <div class="col col-100">
+  </div>
+</div>
+</div>
+</ion-content>
+</ion-modal-view>

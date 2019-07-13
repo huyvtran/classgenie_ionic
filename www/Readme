@@ -1,0 +1,87 @@
+IN add class.js
+
+global.fclog("lenght of json"+jsonObj.length);
+global.fclog(" 2nd add class::"+jsonObj);
+global.fclog("in add class::"+jsonresponse);
+
+
+IN addskill.js
+
+global.fclog("in add class::"+jsonresponse);
+global.fclog(" 2nd add class::"+jsonObj);
+global.fclog("lenght of json"+jsonObj.length);
+
+
+IN classroom.js
+
+console.log(JSON.stringify(resp));
+console.log(res1.status);
+
+IN editstudentlist.js 
+
+global.fclog("  addStudent page data::"+jsonObj);
+global.fclog(id+" "+name+" "+userEmail+" "+member_no+" "+user_type+"classid::"+classId);
+
+
+IN addskill.js
+
+  console.log(resp);
+  console.log(skill_name);
+  console.log("i am here!!!" +$scope.skillName +"  "+gradeValue+" image::"+$scope.image);
+  console.log(selectGrade);
+  console.log(selectGrade);
+  console.log(imagePath);
+
+  IN addclass.js
+
+	console.log('Tapped!', res);
+	console.log(imagePath);
+
+
+  http://localhost:8100/#/tab//messages
+	http://localhost:8100/#/2000007/chat
+	http://localhost:8100/#/3000044/chat
+  http://localhost:8100/#/3000045/chat
+  http://localhost:8100/#/3000046/chat
+
+
+  //on window unload when outof scope
+  $scope.$on('$destroy', function() {
+        alert(1);
+    });
+
+
+ //Sandeep login
+     // var jsonresponse=Service_Store.getLocal('parentdata');
+
+     //  if(jsonresponse!="" && jsonresponse!=null)
+     //  {
+     //     $window.location.href = '#/dashboard'; //load dashboard
+     //  }
+
+
+//$scope.socket.emit('message', {teacher_id:sender_ac_no,parent_id:value.parent_ac_no,message:$scope.message});  //dshahi
+ /*This function execute on when window is ready*/
+        // angular.element(document).ready(function () {
+        //    if(Service_Store.getLocal('page_load_message') === null){ 
+        //        Service_Store.setLocal('page_load_message', '1');
+        //        $window.location.reload(true);
+        //     }
+        // });
+        console.log(1);
+        // if(typeof $scope.socket != 'undefined'){
+        //    $scope.socket.disconnect();
+        // }
+        Service_Store.removeKey('page_load_chat');
+        parentmessage_socket = io.connect(global.config['chatting_url'], {'force new connection':true}); 
+
+
+        //logout  api calling for change status
+       // ajaxloader.loadURL(global.config['api_url']+'/checkstatus?token='+global.config['token'],
+      //{
+      //      login_status:"0",
+        //    member_no: $scope.member_no
+    //},$scope.logoutResponse);
+  //};
+
+ $scope.socket.emit('new user', {member_no: sender_ac_no, source:'chatting'}); //dshahi

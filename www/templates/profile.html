@@ -1,0 +1,41 @@
+<div class ="model-width" ng-controller="profilectrl">
+	<ion-header>
+		<div class="bar bar-header new-header back-btn">
+			<a href="javascript:void(0);" on-tap="backButton()"><div class="ion-android-arrow-back back-icon"></div>
+			</a>
+			<p class="col-80">Profile</p>
+		</div>
+	</ion-header>
+	<ion-content class="margin-top" ng-controller="profilectrl">
+		<div class="uplod-image">
+			<button class="button new-btn" on-tap="showPopup()"> <img class="image_border" ng-src="{{imgURI}}"/><p>Add Photo</p></button>
+		</div>
+		<div class="list profile-edit">
+			<div class="profile feild"> 
+				<h3 class="title">Account</h3>
+
+
+				<label class="item item-input my-input" class="place-color">
+
+					<input type="text" placeholder="Name" class="place-color" ng-model="name" id="name">
+				</label>
+
+				<label class="item item-input my-input" class="place-color">
+
+					<input type="text" ng-disabled="email" placeholder="Email" class="place-color" ng-model="email" id="email">
+				</label>
+				<button class="button button-block button-positive save-btn" on-tap="editprofile()">Save Changes</button>
+
+				<div class="setting-profile">    
+					<h3 class="title">Resource</h3>
+					<a href="javascript:void(0);" on-tap="changepassword()" class="change-pass">Change Password</a><br />
+					<a href="javascript:void(0)" on-tap="showConfirm()" class="change-pass">Delete Account</a><br />
+					<a href="javascript:void(0)" on-tap="openTerms()" class="change-pass">Terms and Conditions</a><br />
+					<a href="javascript:void(0)" on-tap="openPrivacy()" class="change-pass">Privacy & Policy</a><br/>
+					<a href="javascript:void(0)" on-tap="openNotification()" class="change-pass">Notification Setting</a><br/>
+					<div class="signout" on-tap="logout()"><a href="javascript:void(0);" class="change-pass">Sign out</a><br/>
+					</div> 
+				</div>
+			</div>
+		</ion-content>
+	</div>

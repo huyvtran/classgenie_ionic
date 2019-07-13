@@ -1,0 +1,33 @@
+<ion-modal-view class ="model-width poop_award">
+  <ion-content >
+    <div class="pop-contnr">
+
+      <a href="javascript:void(0);"><i class="ion-close" on-tap="closeGroupPopUp()"></i></a>
+
+    </div>
+
+    <div class="row responsive-sm tab_content" id="positive" ng-show="positive">
+      <div class="col col-25 my-class-box new_box" ng-repeat="item in award_items track by $index" on-tap="giveReward()">
+        <a href="javascript:void(0);">
+          <div class="redius_cont color-change">{{item.pointweight}}</div>
+          <img ng-src="{{imagePath}}skill/{{item.image}}"><br>
+          <p>{{item.name}}</p>
+        </a>
+      </div>
+    </div>
+    <div on-tap="addGroup()">
+      <a href="javascript:void(0);" class="col col-25 my-class-box last-add">
+        <span class="ion-plus-round" ></span><br />
+        <p>Add Group</p>
+      </a>
+    </div>
+  </ion-content>
+  <div class="bar bar-footer new-footer" ng-hide="footer">
+    <a href="javascript:void(0);" class="col col-33 footer-box"><span class="ion-ios-clock"></span><p>Attendance</p></a>
+
+    <a href="javascript:void(0);" class="col col-33 footer-box" on-tap="selectmultiple()" ><span class="ion-android-checkbox-outline"></span><p>Award multiple</p></a>
+    <a href="javascript:void(0);" class="col col-33 footer-box"  on-tap="openAddGroup()"><span class="ion-android-bulb"></span><p>Big Ideas</p></a>
+  </div>
+</ion-modal-view>
+
+

@@ -1,0 +1,30 @@
+<ion-modal-view class ="model-width"> 
+<ion-header>
+<div class="bar bar-header new-header back-btn">
+  <a href="javascript:void(0);" on-tap="backPage()">
+    <div class="ion-android-arrow-back back-icon col"></div></a>
+    <p class="col col-65">Volunteer List</p>   
+  </div>
+</ion-header>
+
+<ion-content class="margin-top">
+  <div class="col col-100 school-heading">
+    <div class="all_teacher" id="student_list"><p></p>
+      <ion-item class="item-avatar" ng-if="volunteersLength > 0 " ng-repeat="item in items">
+      <img  ng-if="item.image" ng-src="{{imagepath}}/{{item.image}}">
+      <img  ng-if="!item.image" ng-src="img/chat_user.png">
+      <p class="teacher_list" ng-model="teacher">{{item.name}} </p>
+      <p ng-model="email">{{item.email}}</p><br> 
+      <div class="btn_edit"> 
+                    <a href="javascript:void(0)" class="subdued button button-stable del_btn" ng-click="removeVolunteer(item.id)"><span class="ion-android-remove-circle"></span>Delete</a>
+
+                </div>
+    </ion-item>
+    <p align="center" ng-if="volunteersLength == 0">No volunteers available Yet !</p>
+    <div class="clearfix" ></div>
+    <center ng-if="total_count > 5"><button class="more-btn" on-tap="pagging()" ng-if="status_val=='Success'">More</button></center>
+  </div>
+</div>
+</div>
+</ion-content>  
+</ion-modal-view>

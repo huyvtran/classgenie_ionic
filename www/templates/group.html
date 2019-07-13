@@ -1,0 +1,49 @@
+<ion-modal-view class ="model-width">
+  
+    <ion-content   ng-background="#f7f7f7"  on-swipe-left="onSwipeLeft()">
+
+      <div class="row new-top responsive-md">
+       <div class="col col-25 my-class-box new_box" ng-repeat="item in items track by $index" on-tap="openGroupDetail()">
+        <a href="javascript:void(0);">
+          <div class="redius_cont color-change">{{item.pointweight}}</div>
+          <!-- <img ng-src="{{imagePath}}skill/{{item.image}}"><br> -->
+          <p>{{item.group_name}}</p>
+          </a>
+      </div>
+        
+        <div on-tap="addGroup()" class="col col-10 my-class-box last-add">
+        <a href="javascript:void(0);" class="">
+            <span class="ion-plus-round" ></span><br />
+            <p>Add Group</p>
+        </a>
+        </div>
+      </div>
+
+
+       <input id="selectall" type="checkbox"  ng-model="all"
+           ng-change="selected(1)">
+          <div id="check_{{item.id}}" class="col col-25 my-class-box"   ng-hide="selectstudent" ng-repeat="item in items">
+            <input id="item_{{item.id}}" type="checkbox"  ng-selected="all" value="{{item.id}}"
+            ng-model="item.selected" ng-change="selected(item.id)">
+            <div on-tap="checkitem(item.id)">
+              <a href="javascript:void(0);">
+                <div class="redius_cont">{{item.pointweight}}</div>
+                <img ng-src='{{imagePath}}/student/{{item.image}}'><br>
+                <p>{{item.name}}</p>
+                <h3 style="display:none">{{item.id}}</h3> 
+              </a>
+            </div>
+            <button class="bar bar-footer new-footer" ng-disabled="studentselected" ng-model="count" on-tap="awardmultipleGroup()">Give award to {{count}} students</button>
+          </div>
+
+
+    </ion-content>
+   
+  </div> 
+    <div class="bar bar-footer new-footer">
+      <a href="javascript:void(0);" class="col col-33 footer-box"><span class="ion-ios-clock"></span><p>Attendance</p></a>
+
+      <a href="javascript:void(0);" class="col col-33 footer-box" on-tap="selectmultiple()"><span class="ion-android-checkbox-outline"></span><p>Award multiple</p></a>
+      <a href="javascript:void(0);" class="col col-33 footer-box" on-tap="openAddGroup()"><span class="ion-android-bulb"></span><p>Big Ideas</p></a>
+    </div>
+   

@@ -1,0 +1,69 @@
+<ion-modal-view class ="model-width">
+  <ion-header>
+    <div class="bar bar-header new-header">
+      <h1 class="title">Student Signup</h1>
+    </div>
+    <ion-content class="body-back">
+      <form  name="studentform" class="login-form" ng-controller="studentRegister">
+        <div class="col logo-img">
+          <img ng-src="img/logo.png" / ><br>
+        </div>
+        <div ng-hide="message" class="chat-bubble new_right">
+          <div class="message"><span>The student code should be of minimum 7 charecters for Ex. S123543</span>
+          </div></div>
+          <div class="list">
+               
+            <div class="item item-input new-item" id ="user">
+              <span  class="ion-android-person login-icon"></span>
+              <input  ng-focus="numberfocus()" type="text" placeholder="ex.S123456" ng-model="loginData.studentcode" ng-hide="loginData.checkcode" ng-required="true">
+              <span  class="ion-help-circled" on-tap="toggleCustom()"></span>
+            </div>
+
+            <div class="stunt-new-feild" ng-hide = "IsHidden" id="hidden_fields">
+             <label class="item item-input new-item">
+             
+
+                <input type="text" id="uname" ng-model="loginData.username" placeholder="Username">
+                    <span class="ion-help-circled" ></span>
+              </label>
+              <label class="item item-input item-select new-item my-input my-select age-select">
+               
+                <select class="new-select age-new" ng-change="GetValue()" data-ng-model="loginData.ageValue">
+                  <option selected="" value="3 Years">3 Years</option>
+                  <option selected="" value="4 Years">4 Years</option>
+                  <option selected="" value="5 Years">5 Years</option>
+                  <option selected="" value="6 Years">6 Years</option>
+                  <option selected="" value="7 Years">7 Years</option>
+                  <option selected="" value="8 Years">8 Years</option>
+                  <option selected="" value="9 Years">9 Years</option>
+                  <option selected="" value="10 Years">10 Years</option>
+                  <option selected="" value="11 Years">11 Years</option>
+                  <option selected="" value="12 Years">12 Years</option>
+                  <option selected="" value="13 Years">13 Years</option>
+                  <option selected="" value="14 Years">14 Years</option>
+                  <option selected="" value="15 Years">15 Years</option>
+                  <option selected="" value="16 Years">16 Years</option>
+                  <option selected="" value="17 Years">17 Years</option>
+                  <option selected="" value="18 Years">18 Years</option>
+                  <option selected="" value="19 Years">18 Years above</option>
+                  <!-- <option selected="" value="age"><span class="ion-android-contacts"></span>Age</option> -->
+
+                </select>
+              </label>
+              <label class="item item-input new-item">
+                <span class="ion-android-lock login-icon"></span>
+
+                <input type="password" id="password" ng-model="loginData.password" placeholder="Password"  ng-change="varifyUser()">
+              </label>
+            </div>
+            <button class="button button-block submit-btn" on-tap="checkUserName()" id="checkuser" ng-disabled="studentform.$invalid">Check student code
+            </button>
+            <button ng-disabled="stu_signup" class="button button-block submit-btn" on-tap="studentSignup()" id="signup">Signup
+            </button>
+            <div class="col col-100 my-content signup-already forget_link">Already have any account <a href="#/login">Login</a></div>
+          </div>
+        </form>
+
+      </ion-content>
+    </ion-modal-view>
+

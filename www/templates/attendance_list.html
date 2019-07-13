@@ -1,0 +1,80 @@
+<ion-modal-view class ="model-width">
+
+<ion-header>
+       <div class="bar bar-header new-header back-btn">
+<a href="javascript:void(0);" on-tap="back_attendance()" class="col">
+    <div class="ion-android-arrow-back back-icon col"></div>   
+    </a>
+
+    <div class="addclass col-50">Take Attendence</div>
+    <a class="col col-33 font_poup new_font_poup" haref="javascript:void(0)" class="viewatt" on-tap="ViewAttendanceReport($event)">Get Attendance</a>
+</div></div>
+
+</ion-header>
+<ion-content>
+  <div class="tabs-striped tabs-top tabs-color-light new-tab">
+  <div class="list classgenie-list invite_parents">
+       <!-- <div class="date_att"> June 2nd 2016 </div> -->
+    <div>
+    <div class="col col-100">
+    <div class="list list-inset search_input_new">
+              <label class="item item-input">
+                <i class="icon ion-ios-calendar-outline placeholder-icon" style="font-size: 40px"></i>
+                <input type="Date" id="datepicker" class="form-control" ng-model="current" ng-change="getDate_1($this)" style="padding-right:0px !important">
+              </label>
+            </div>
+    <!-- <button><label class="">
+                        {{currenDate}}
+                        <input type="date" class="addgroup_search mynew-input" ng-model="current" ng-change="getDate_1($this)">
+                             </label></button> --></div></div>
+ <div class="row">
+       <div class="width_full col-100">
+
+       
+       <div class="lable_mark"><p>Mark All</p></div>
+       <select id="sel" ng-model="holiday" ng-change="all(holiday)" class="select_drop">
+<option value="NA">Attendence</option>
+<option value="P">Mark All Present</option>
+<option value="A">Mark All Absent</option>
+<option value="H">Mark Holiday</option>
+</select>
+       </div><div class="clear"></div></div>
+        <div class="list classgenie-list">
+        <ion-list id="student_list" ng-model="listdata">
+                <ion-item class="item-avatar item item-thumbnail-left image-item" ng-repeat="item in items track by $index">
+                     <img ng-src="{{imagePath}}student/{{item.image}}" /> 
+                     <div class="right aatendence_present" >
+                        <img id="image_{{$index+1}}" src="img/attendance_p.png" on-tap="giveAttendance($event)"  data-studentno="{{item.student_no[0].student_no}}" ng-if="item.student_no[0].attendance=='P'"/>
+                        <img id="image_{{$index+1}}" src="img/attendance_a.png" on-tap="giveAttendance($event)"  data-studentno="{{item.student_no[0].student_no}}" ng-if="item.student_no[0].attendance=='A'"/>
+                        <img id="image_{{$index+1}}" src="img/attendance_l.png" on-tap="giveAttendance($event)"  data-studentno="{{item.student_no[0].student_no}}" ng-if="item.student_no[0].attendance=='L'"/>
+                        <img id="image_{{$index+1}}" src="img/attendance_h.png" on-tap="giveAttendance($event)"  data-studentno="{{item.student_no[0].student_no}}" ng-if="item.student_no[0].attendance=='H'"/>
+                        <img id="image_{{$index+1}}" src="img/attendance_na.png" on-tap="giveAttendance($event)"  data-studentno="{{item.student_no[0].student_no}}" ng-if="item.student_no[0].attendance=='NA'"/>
+                         
+                     </div>
+                     <h1>{{item.student_no.attendance}}</h1>
+                    <h2 class="list_font" ng-model="className">{{item.name}} </h2>
+
+                </ion-item>
+            </ion-list>
+  </div>
+  </div><br />
+<br /><br />
+<div class="list classgenie-list">
+
+<div class="col col-100">
+    
+    <!--<a class="button button-positive date_btn reset_btn" href="javascript:void(0)" on-tap="resetAttendence()"><b>Reset</b></a>
+-->
+<center>
+    <button ng-hide="reset" class="button button-positive attnd_btn reset_btn" on-tap="resetAttendence()">
+            Reset
+      </button>
+    
+      <button class="button button-positive date_btn attnd_btn" on-tap="saveAttendence()">
+            Save attendance
+      </button></center>
+</div>
+</div>
+</div>
+</ion-content>
+</ion-modal-view>

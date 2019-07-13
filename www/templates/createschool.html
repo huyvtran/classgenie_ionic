@@ -1,0 +1,57 @@
+<ion-modal-view class ="model-width" ng-controller="addschool">
+      <ion-header>
+         <div ng-hide="classroom" class="bar bar-header new-header back-btn">
+            <a href="javascript:void(0);" on-tap="closepopup()">
+              <div class="ion-close back-icon col"></div></a>
+            <p class="col col-65">Add School</p>
+            <div class="dropdown-icon col-25">
+            <a href="javascript:void(0);" class="post_text">Save</a>
+            </div>
+            </div>
+      </ion-header>
+      <ion-content class="margin-top new_margin">
+        <form name="formLogin" id="formLogin">
+          <div class="list profile-edit">
+            <div class="profile feild"> 
+              <input type="text" placeholder="School Name" class="place-color" ng-model="school.schoolname" ng-required="true">
+
+              <label class="item item-input my-input" class="place-color"></label>
+              <input type="text" placeholder="Address of school" class="place-color" ng-model="school.address" ng-required="true">
+
+              <label class="item item-input my-input" class="place-color"></label>
+              <input type="text" placeholder="City or town" class="place-color" ng-model="school.city" ng-required="true">
+
+              <label class="item item-input my-input" class="place-color"></label>
+              <input type="text" placeholder="State or province" class="place-color" ng-model="school.state" ng-required="true">
+
+              <label class="item item-input my-input" class="place-color"></label>
+              <input type="text" placeholder="Country" class="place-color" ng-model="school.country" ng-required="true">
+
+              <label class="item item-input my-input" class="place-color"></label>
+              <input type="number" placeholder="Pin Code" class="place-color" ng-model="school.pin" ng-required="true">
+
+
+              <label class="item item-input my-input" class="place-color"></label>
+              <input type="number" placeholder="Phone" class="place-color" ng-model="school.phone" ng-required="true">
+
+
+              <label class="item item-input my-input" class="place-color"></label>
+              <input type="email" placeholder="email" class="place-color" ng-model="school.email" ng-required="true">
+
+               <label class="item item-input my-input" class="place-color"></label>
+              <input type="text" placeholder="School Website" class="place-color" ng-model="school.site">
+              <label class="item item-input my-input" class="place-color">  </label>
+              <br/>
+
+              <button class="button button-block button-positive save-btn" ng-disabled="formLogin.$invalid"  on-tap="saveschool()">Save School</button>
+
+
+            </div> 
+
+
+          </div>
+          </form>
+        </ion-content>
+
+
+      </ion-modal-view>
