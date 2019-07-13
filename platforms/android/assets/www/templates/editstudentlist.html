@@ -1,0 +1,41 @@
+<ion-modal-view class ="model-width" >
+
+<ion-header>
+      <div class="bar bar-header new-header back-btn">
+        <a href="" onClick="goBack()"><div class="ion-close back-icon" ></div></a>
+          <p class="col-60 ng-binding">Edit Student</p>
+
+        </div>
+      </ion-header>
+
+
+
+<ion-content  ng-controller="editStudentCtrl" >
+<form name="formStudent" novalidate>
+<div class="list add-student">
+
+
+  <div class="row">
+    <div class="col col-75"><label class="item item-input">
+
+      <input type="text" placeholder="Student name" ng-model="student_name" ng-required="true">
+    </label></div>
+
+    <div class="col ">
+      <button class="button add-btn" on-tap="editStudent()" ng-disabled="formStudent.$invalid">
+        Add
+      </button>
+    </div>
+  </div>
+  <ion-list id="student_list" ng-model="listdata">
+  <ion-item class="item-avatar" ng-repeat="item in items track by $index" on-tap="editStudentPage()">
+  <img ng-src="{{imagePath}}assets/student/{{item.image}}" /> 
+  <h2>{{item.name}} </h2>
+  <h3 ng-model="studentID" style="display:none">{{item.id}} </h3> 
+</ion-item>
+</ion-list>
+</div>
+</form>
+</ion-content>
+
+</ion-modal-view>

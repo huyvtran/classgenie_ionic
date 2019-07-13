@@ -1,0 +1,64 @@
+<ion-modal-view class ="model-width">
+  <ion-header>
+    <div class="bar bar-header new-header back-btn">
+    <a href="javascript:void(0)" on-tap="backPage()"> 
+    <div class="ion-android-arrow-back back-icon col"></div></a>
+    <div class="asigment_add col-65">Event List</div>
+    <div class="col right_col"><a href="javascript:void(0)" ng-click="create_event()"><span class="ion-ios-plus-outline"></span></a></div>
+    </div>
+  </ion-header>
+
+  <ion-content><br>
+    <div class="tabs-striped tabs-top tabs-color-light new-tab">
+      <div class="list classgenie-list invite_assignment">
+        <div class="header-box"><p></p></div>
+        <div class="row">
+          <div class="col col-100">                             
+            <label class="">
+            <h5 class="event_font col col-50">Select Event Type</h5>
+              <select ng-model="searchItem" id="searchlist" ng-change="loadData()" ng-options="item for item in names"></select>
+            </label>
+          </div>
+        </div> 
+      </div>  
+    </div> 
+
+    
+    <div class="list card" ng-repeat="item in items | limitTo: itemsLimit()">
+      <div class="item atachment_title">
+        <h2 class="">{{item.event_list[0].event_name}}</h2>
+        
+      </div>
+      <div class="item item-body">
+        <p>Description: {{item.event_list[0].description}} </p><hr class="horizontal_border">
+
+        <p ng-if="item.total_volunteer_count > 0">Number of volunteers: <span class="attachment" on-tap="volunteerList(item.id)">({{item.total_volunteer_count}}/{{item.event_list[0].no_of_volunteer}})</span></p>
+
+        <p ng-if="item.total_volunteer_count == 0">Number of volunteers: <span class="attachment" >({{item.total_volunteer_count}}/{{item.event_list[0].no_of_volunteer}})</span></p>
+         <hr class="horizontal_border">
+         <button ng-click="resp_schedule(item.event_list[0].id)" class="button button-assertive button-outline">Schedule</button>
+
+         <button ng-click="resp_list(item.event_list[0].id)" class="button button-assertive button-outline">Responsibility</button>
+         <hr class="horizontal_border">
+         <p></p>
+        <div class="btn_edit"> 
+
+          <a href="javascript:void(0)" ng-click="sendEvent(item.event_list[0].school_id,searchItem1)" class="subdued button button-stable send_btn"><span class="ion-android-notifications-none"></span> Send</a> 
+
+          <a href="javascript:void(0)" ng-click="editEvent(item,searchItem1)" class="subdued button button-stable edit_btn"><span class="ion-edit"></span> Edit</a> 
+
+          <a href="javascript:void(0)" class="subdued button button-stable del_btn" ng-click="removeEvent(item.event_list[0].id)"><span class="ion-android-remove-circle"></span> Delete</a> 
+
+        </div> 
+      </div> 
+    </div>   
+    <p align="center" ng-if="dataLength == 0">No Event Available Yet !</p>
+      <div class="clearfix" ></div>
+      <center>
+        <button class="more_btn_new" ng-show="hasMoreItemsToShow()" ng-if="dataLength > 0" ng-click="showMoreItems()">Load More</button>
+      </center>
+  </ion-content> 
+</ion-modal-view>
+
+
+

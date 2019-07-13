@@ -1,0 +1,44 @@
+<ion-modal-view class ="model-width"  >
+
+  <ion-header>
+    <div class="bar bar-header new-header back-btn">
+      <a href="javascript:void(0)" onClick="add_class_goBack()"><div class="ion-android-arrow-back back-icon"></div></a>
+    </div>
+  </ion-header>
+  <ion-content class="margin-top"  ng-controller="addClassCtrl" >
+    <br />
+    <div class="uplod-image uplod-avtar">
+      <img ng-src="{{image}}"   on-tap="classIconPopup()"/>
+
+    </div>
+    <div class="list">
+      <div class="profile feild responsive-sm"> 
+        <form name="formClass" novalidate>
+          <label class="item item-input my-input add-class col col-67">
+            <input type="text" placeholder="Class Name." class="place-color" ng-model="className" ng-required="true">
+          </label>
+
+          <label class="item item-input item-select  my-input my-select add-class-select col col-25">
+
+            <select class="new-select" ng-model="selectGrade" ng-change="showSelectValue(selectGrade)" ng-required="true">
+              <option  value="">Select Grade...</option>
+              <option ng-repeat="x in selectGrades" value="{{x.key}}">{{x.value}}</option>
+            </select>
+          </label>   
+          <button class="button button-block button-positive save-btn" ng-disabled="formClass.$invalid"  on-tap="createNewClass()">Create new class</button>
+
+
+        </div> 
+      </form>
+    </div> 
+
+
+  </div>
+
+</div>
+
+
+</ion-content>
+
+
+</ion-modal-view>

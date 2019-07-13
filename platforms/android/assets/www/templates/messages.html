@@ -1,0 +1,26 @@
+  <ion-modal-view class ="model-width">
+
+    <ion-header>
+      <div class="bar bar-header new-header back-btn">
+        <a href="javascript:void(0)" onclick="goToDashBoard();">
+          <div class="ion-android-arrow-back back-icon col"></div></a>
+          <p class="col-80">{{classname}}</p>
+          <!-- a href="#" class="dropdown-icon"><span class="ion-android-person-add"></span></a -->
+        </div>
+      </ion-header>
+      <ion-content>
+          <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+          <div class="list massage-list">
+            <p class="massge-heading">Message</p>
+
+            <a class="item item-avatar" href="javascript:void(0)" onclick="setParentDetailAll()" id="lnk_all_parents" style="display:none;">
+              <img ng-src="img/all_parent.png">
+              <h2>All Parents</h2>
+              <p><span id="no_of_users"></span> parents connected</p>
+            </a>
+            <div id="chat_list" style="display:none;">
+            </div>
+          </div>
+      </ion-content>
+    </ion-modal-view>
+

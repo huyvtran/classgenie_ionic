@@ -1,0 +1,27 @@
+<ion-modal-view class ="model-width" ng-controller="SingupController">
+  <ion-header ng-include="'templates/signup/signup_header.html'"></ion-header>
+  <ion-content class="body-back"><br /><br /><br />
+    <div class="margin_top top_space">
+       <singup-content></singup-content>
+       <div class="list card background-transprent">
+       
+        <div class="row responsive-md">
+       <a href="#/teachersignup" class="back-change">
+              <img ng-src="img/teacher_icon.png">
+              <p> Teacher</p></a>
+<a href="#/parantsignup" class="back-change">
+                <img ng-src="img/parants_icon.png">
+                <p>Parent</p></a>
+ <a href="#/studentsignup" class="back-change">
+                  <img ng-src="img/student_icon.png">
+                  <p> Student</p></a>
+
+                  <a href="#/leadersignup" class="back-change">
+                  <img ng-src="img/student_icon.png">
+                  <p> School Leader</p></a>
+</div>
+              <div class="col col-100 my-content signup-already forget_link">Already have any account <a href="#/login">Login</a></div>
+            </div>
+          </ion-content>
+          </ion-modal-view>
+

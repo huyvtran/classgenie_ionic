@@ -1,0 +1,38 @@
+<ion-modal-view class ="model-width">
+    <ion-header>
+    <div class="bar bar-header new-header back-btn">
+            <a href="javascript:void(0)" on-tap="backPage()"> 
+                <div class="ion-android-arrow-back back-icon col"></div></a>
+            <div class="asigment_add col-65">Notifications</div>            
+        </div>
+    </ion-header>
+    <form name="form_notification" id="form_notification">
+    <ion-content ng-controller="event_notifications"><br /></br><br /></br>
+    <div class="row">
+        <label class="checkbox">
+           <input type="checkbox" ng-model="all" value="{{item.member_no}}">            
+           </label>
+    </div>
+    <ul class="list">
+        <li class="item item-checkbox" ng-repeat= "item in items">
+           {{item.name}} 
+           <span ng-if="item.status == 0">(Not Reg)</span>
+           <!-- <div ng-if="item.status == '1' && item.notification_status == '0'" ng-model="myVar" ng-init="myVar = true" ></div> 
+            --><label class="checkbox" ng-if="item.status == 1">
+           <input type="checkbox"  ng-checked="true"  ng-disabled="true" name="member_no[]" value="{{item.member_no}}">
+           <!-- {{notify(myVar)}} -->            
+           </label>
+        </li>
+    </ul>
+
+
+       
+    <div class="row">
+    <button class="button button-clear white_color button-full button-positive date_btn" ng-click="send_notification_post()" ng-disabled="notify">
+       Send
+    </button>
+</div>
+
+    </ion-content>
+</form>
+</ion-modal-view>

@@ -1,0 +1,32 @@
+    <ion-pane class="messaging-view">
+    <ion-header>
+    <div class="bar bar-header new-header back-btn">
+    <a href="javascript:void(0)" on-tap="backFromChat()">
+        <div class="ion-android-arrow-back back-icon col"></div>
+    </a>
+  <p class="col-60">{{Name}}</p>
+
+</div>
+  </ion-header>
+
+       <ion-content class="content-stable" on-swipe-left="hideTime = false" on-swipe-right="hideTime = true">
+          <br /><br /><br />
+          <div id="Pagination" class="prev_chat" style="text-align:center;display:none;" on-tap="loadPreviousData();">
+             <a href="javascript:void(0)">Load previous data</a>
+          </div>
+          <div class="message_chat"></div>
+       </ion-content>
+
+    <ion-footer-bar keyboard-attach class="bar-stable item-input-inset footer_chat">
+      <span class="item-input-wrapper chat_wrapper">
+        <a href="javascript:void(0)" on-tap="showPicturePopup()" title="Camra"><i class="ion-android-camera"></i></a>
+        <a href="javascript:void(0)" on-tap="showEmotionList()" title="Emotion"><i class="ion-android-happy"></i></a>
+        <input type="text"  class="chat_text" placeholder="Type your message" ng-model="message" ng-keyup="sendMessage($event)"/>
+      </span>
+      <button class="button button-clear chat_new_btn" on-tap="_sendMessage()">
+        <i class="ion-android-send"></i>
+      </button>
+    </ion-footer-bar>
+  </ion-pane>
+  
+ 

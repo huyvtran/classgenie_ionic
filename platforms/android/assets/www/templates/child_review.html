@@ -1,0 +1,88 @@
+ 
+  <ion-content>
+
+  <div class="col feedback_tab">
+ 
+    <div class="padding-new padding_ip">
+        <div class="row" ng-hide="selectdate"> 
+          <div class="col col-100 student-lo"><span class="ion-calendar" on-tap="selectDate($event)" id="sp_selected_date">&nbsp;{{datetokenview}}</span></div>
+        </div>
+      </div>
+    
+  <button class="button button-positive new_tab_btn" id="perf" on-tap="showPerfTab()"  ng-class="perftab" ng-model="myValue">
+    Performance
+  </button>
+
+  <button class="button button-positive new_tab_btn" id="att" on-tap="showAttTab()" ng-class="att_tab" ng-model="myValue2"> 
+    Attendance
+  </button>
+
+
+   
+</div>
+ <center><span ng-if="tokenDta">{{tokenDta}}</span></center>
+<div id="graph" ng-hide="hidegraph">
+     <center>
+         <div ng-show="nocontent">
+
+            <div class="col col-100 graph_img">
+               <img ng-src="img/graph.png" />
+               <div class="positive_1"><span>No points for current date selected</span></div>
+           </div>
+        </div>
+        <div class="col col-100 graph" ng-show="graph">
+          <div id="chart-container" class="graph">Loading Performance graph</div>
+        </div>
+    </center>
+    <div class="newsss">
+    <ion-list style="margin-bottom:100px;">
+    <div ng-repeat = "item in award_data" class="item-avatar item" >
+    
+        
+          <img ng-src="{{imagePath}}skill/{{item.customize_detail.image}}">
+          <div ng-if="item.point > 0"><h2><strong>+{{item.point}} for {{item.customize_detail.name}}</strong></h2></div>
+          <div ng-if="item.point < 0"><h2><strong>{{item.point}} for {{item.customize_detail.name}}</strong></h2></div>
+          <p class="border">by {{item.class_name.teacher_name}}</p>
+        
+        </div>
+    </ion-list>
+    </div>
+</div><div id="Attendence" ng-hide="hideattendence" style="margin-top: -71px">
+<!-- TEMPLATE CODE FOR STARTS FROM HERE -->  
+<div class="list invite_parents">
+<br />
+<br />
+<div class="attendece_list_month attendence_shortby">
+<div class="list">
+<a class="item item-icon-left item-icon-right" href="javascript:void(0)" on-tap="getDateRange()">
+    <!-- <i class="icon ion-chevron-left icon_color"></i> -->
+   <center> <p>{{date1}}</p> - <p>{{date2}}</p></center>
+    <!-- <i class="icon ion-chevron-right icon_color"></i> -->
+  </a>
+</div>
+
+</div><br />
+
+<div class="list">
+<div ng-repeat="item in days track by $index">
+<a class="item item-icon-right right_img" href="">
+    <!-- <p>{{item.date}}</p> -->
+    <div ng-if="item.attendance == 'P' "><p>{{item.date}}</p><p>{{getday(item)}}</p><p style="color: #10570A;">Present</p><span class="right_attandence">
+    <img ng-src="img/attendance_p.png" alt="img" /></span></div>
+    <div ng-if="item.attendance == 'A' "><p>{{item.date}}</p><p>{{getday(item)}}</p><p style="color: #FF0303;">Absent</p><span class="right_attandence">
+    <img ng-src="img/attendance_a.png" alt="img" /></span></div>
+    <div ng-if="item.attendance == 'L' "><p>{{item.date}}</p><p>{{getday(item)}}</p><p style="color: #FF9D00;">Late</p><span class="right_attandence">
+    <img ng-src="img/attendance_l.png" alt="img" /></span></div>
+    <div ng-if="item.attendance == 'H'"><p>{{item.date}}</p><p>{{getday(item)}}</p><p style="color: #1A1815;">Holiday</p>
+    <span class="right_attandence">
+    <img ng-src="img/attendance_h.png" alt="img" /></span>
+    </div>
+    <div  ng-if="item.attendance == 'NA' "><p>{{item.date}}</p><div><p>{{getday(item)}}</p><p>No Attendance</p></div>
+    <span class="right_attandence">
+    <img ng-src="img/attendance_h.png" alt="img" /></span></div>
+  </a>
+</div>
+</div>
+</div>
+</div>
+  </ion-content>

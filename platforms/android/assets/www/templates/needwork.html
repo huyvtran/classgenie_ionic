@@ -1,0 +1,53 @@
+<ion-modal-view class ="model-width">
+
+<ion-header>
+    <div class="bar bar-header new-header back-btn">
+       <a href="javascript:void(0)" onClick="add_skill_goBack()"><div class="ion-android-arrow-back back-icon"></div></a>
+       <p class="col-60 ng-binding">Add needwork</p>
+    </div>
+
+</ion-header>
+  <ion-content class="margin-top" ng-controller="addskillCtrl">
+ <br /><br />
+  <form class="login-form" name="formLogin" id="formLogin">
+<div class="uplod-image uplod-avtar">
+<img ng-src="{{image}}"   on-tap="classIconPopup()"/>
+
+</div>
+<div class="list">
+<div class="profile feild responsive-sm"> 
+
+<label class="item item-input my-input add-class col col-67">
+    
+    <input type="text" placeholder="Skill Name" class="place-color" ng-model="skillName" ng-required="true">
+  </label>
+  
+ <label class="item item-input item-select  my-input my-select add-class-select col col-25">
+<select class="new-select" ng-model="selectGrade" ng-change="showSelectValue(selectGrade)" ng-required="true">
+    
+      <option value=""></option>
+       <option>-1</option>
+       <option>-2</option>
+       <option>-3</option>
+       <option>-4</option>
+       <option>-5</option>
+       <option>-6</option>
+       <option>-7</option>
+       <option>-8</option> 
+       <option>-9</option>
+       <option>-10</option>
+     
+    </select>
+  </label> 
+  
+  
+<button class="button button-block button-positive save-btn"  ng-disabled="formLogin.$invalid" on-tap="addNewSkill()">Save skill</button>
+
+
+</div> 
+</div> 
+ </div>
+  </div>
+    
+    </ion-content>
+  </ion-modal-view>

@@ -1,0 +1,45 @@
+<ion-modal-view class ="model-width"  >
+  <ion-header>
+    <div class="bar bar-header new-header back-btn">
+      <a href="javascript:void(0)" onClick="edit_skill_goBack()"> 
+        <div class="ion-android-arrow-back back-icon col" ></div>
+      </div></a>
+    </div>
+  </ion-header>
+  <ion-content class="margin-top new_margin" ng-controller="singleSkillCtrl" >
+    <form name="formSkill" novalidate>
+      <div class="uplod-image uplod-avtar">
+        <img ng-src="{{image}}"   on-tap="classIconPopup()"/>
+
+      </div>
+      <div class="list">
+        <div class="profile feild responsive-sm"> 
+
+          <label class="item item-input my-input add-class col col-67">
+            <input type="text" placeholder="Skill Name" class="place-color" ng-model="skillname" ng-required=true>
+          </label>
+
+          <label class="item item-input item-select  my-input my-select add-class-select col col-25">
+            <select class="new-select" ng-model="selectGrade"  ng-required="true" >
+              <option ng-repeat="x in selectGrades"  value="{{x.value}}">{{x.value}}</option>
+            </select>
+
+
+
+            <!--  <select class="new-select" ng-model="selected_class" ng-change="showSelectValue(selected_class)">
+  <option ng-repeat="class in selectGrades" value="{{class.value}}">{{class.value}}</option>
+  </select> -->
+
+
+          </label> 
+          <button class="button button-block button-positive save-btn"  ng-disabled="formSkill.$invalid" on-tap="editSkill()">Save skill</button>
+          <div class="remove-new col-100">
+            <a href=""  class="remove_btn" on-tap="removeSkill()">Remove skill</a>
+          </div>
+        </div> 
+      </div> 
+    </div>
+  </div>
+</form>
+</ion-content>
+</ion-modal-view>

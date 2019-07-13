@@ -1,0 +1,15 @@
+{
+ "api_url":"http://182.76.98.134:4000",
+ "web_url":"http://182.76.98.134:4001",
+ "test_api_url":"http://172.16.9.65:3000",
+ "token":"aforetechnical@321!",
+ "template_path":"templates/",
+ "common":"js/common/",
+ "controller":"js/controllers/",
+ "service":"js/services/",
+ "image_path":"assets/",
+ "file_url":"http://182.76.98.134/classgenie_node_api/",
+ "chatting_url":"http://182.76.98.134:4002",
+ "page_size":10,
+ "sender_id":400489855724
+}

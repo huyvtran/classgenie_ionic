@@ -1,0 +1,34 @@
+<ion-modal-view class ="model-width">
+    <ion-header>
+        <div class="bar bar-header new-header back-btn">
+            <p class="col col-85"> &nbsp; &nbsp;  Assignment</p>
+
+        </div>
+    </ion-header>
+
+
+
+    <ion-content class="margin-top"><br><br><br>
+
+        
+            <ion-list  ng-model="listdata">
+                <h4>Your Classes</h4>
+                <ion-item class="list  top-position no_margin"  ng-repeat="item in mylist_data" margin="10px" class="margin_new_top"> 
+
+                    <div class="item " ng-click="assignmentListData(item.class_id,item.class_name,item.student_no)">                                 
+                        <b >{{item.class_name}}</b>
+                    </div>
+ 
+
+
+                </ion-item>
+            </ion-list> 
+
+
+       
+
+    </ion-content>
+</ion-modal-view>
+
+
+

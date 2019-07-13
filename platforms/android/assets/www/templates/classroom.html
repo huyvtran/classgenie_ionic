@@ -1,0 +1,134 @@
+<ion-modal-view class ="model-width">
+  <ion-header>
+    <div ng-hide="classroom" class="bar bar-header new-header back-btn">
+      <a href="javascript:void(0);" on-tap="goBack()"> 
+        <div  class="ion-android-arrow-back back-icon col"></div></a>
+        <p class="col col-65">{{className}}</p>
+        <div class="dropdown-icon col-25">
+          <a href="javascript:void(0);"><div class="ion-android-more-vertical col" on-tap="openSideMenu($event)"></div></a>
+        </div>
+      </div>
+      <div class="bar bar-header new-header back-btn"  ng-hide="addmultiplescreen">
+        <a href="javascript:void(0);" on-tap="closeawardmultiple()">
+          <div class="ion-android-arrow-back back-icon col"></div>
+        </a>
+        <p class="col col-65">Add Multiple Awards</p></div>
+      </ion-header>
+      <ion-content  on-tap="" ng-background="#f7f7f7">
+       <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+    </ion-refresher>
+        <div ng-hide="feedback_tab" class="col feedback_tab">
+          <br />
+          <button ng-hide="studbutton" class="button button-positive new_tab_btn" id="posit" ng-class="showstud" on-tap="showclassscreen()" ng-class="posbutton">Students
+          </button>
+
+          <button ng-hide="groupbutton" class="button button-positive new_tab_btn" id = "need" ng-class="showgrp" on-tap="showgroupscreen()" ng-class="needbutton" ng-disabled="disablegroup">
+            Groups
+          </button>
+        </div> 
+        <!-- HTML TEMPLATE CODE FOR CLASS STUDENTS -->
+        <div class="row new-top responsive-md" ng-hide="showstudent">
+
+          <a ng-hide="wholeclass" href="javascript:void(0);" class="col col-10 my-class-box whol_back" on-tap="openClassReward()">
+
+            <div ng-if="classPoints > 0" class="redius_cont color-change new_whole">
+            <b>{{classPoints}}</b></div>
+            <div ng-if="classPoints < 0" class="redius_cont color-change-neg"><b>{{classPoints}}</b></div>
+            <div ng-if="classPoints == 0" class="redius_cont"><b>{{classPoints}}</b></div>
+            <img ng-src="{{imagePath}}class/{{classImage}}"/><br />
+            <p><span class="class_name">Class</span>{{className}}</p>
+          </a>
+          <div  ng-hide="selectall" class="col col-10 my-class-box"><input type="checkbox" ng-model="all" on-tap="selectall()"><img ng-src="{{imagePath}}class/{{classImage}}"/><br />
+
+            <p>Select all</p></div>
+            <div id="check" class="col col-25 my-class-box"  ng-hide="selectone" ng-repeat="item in items track by $index"><div on-tap="openStudentReward()">
+              <a href="javascript:void(0);">
+                <div ng-if="item.pointweight > 0" class="redius_cont color-change"><b>{{item.pointweight}}</b></div>
+                <div ng-if="item.pointweight == 0" class="redius_cont"><b>{{item.pointweight}}</b></div>
+                <div ng-if="item.pointweight < 0" class="redius_cont change-color-neg"><b>{{item.pointweight}}</b></div>
+                <img ng-src='{{imagePath}}/student/{{item.image}}'><br>
+                <p>{{item.name}}</p>
+                <h3 style="display:none">{{item.id}}</h3> 
+                <h3 style="display:none">{{item.student_no}}</h3> 
+              </a>
+            </div>
+          </div><div on-tap="selectAlldiv()"  ng-hide="selectallcheck" class="select_all col col-25 my-class-box"><img ng-src="img/select_all_group.png" /><input id="selectall" type="checkbox"  ng-model="all" ng-change="selected(1)" class="select_chekbox hide_input" ><br><br>{{check}}<br></div>
+          <div id="check_{{item.id}}" class="col col-25 my-class-box"   ng-hide="selectstudent" ng-repeat="item in items">
+            <input id="item_{{item.id}}" type="checkbox"  ng-selected="all" value="{{item.id}}"
+            ng-model="item.selected" ng-change="selected(item.id)">
+            <div on-tap="checkitem(item.id)">
+              <a href="javascript:void(0);">
+                <div class="redius_cont">{{item.pointweight}}</div>
+                <img ng-src='{{imagePath}}/student/{{item.image}}'><br>
+                <p>{{item.name}}</p>
+                <h3 style="display:none">{{item.id}}</h3> 
+              </a>
+            </div>
+          </div>
+
+          <div on-tap="addStudent()" class="col col-25 my-class-box last-add">
+            <a href="javascript:void(0);" class="">
+              <span class="ion-plus-round" ></span><br />
+              <p>Add</p>
+            </a>
+          </div>
+        </div>
+        <!-- HTML TEMPLATE CODE FOR GROUPS STARTS-->
+
+        <div class="row new-top responsive-md" ng-hide="showgroup" ng-controller="groupCtrl">
+          <div ng-hide="selectall" class="col col-10 my-class-box"><input type="checkbox" ng-model="all" on-tap="selectall()"><img ng-src="{{imagePath}}class/{{classImage}}"/><br />
+            <p>Select all</p></div>
+            <div id="check" class="col col-25 my-class-box"  ng-hide="selectone" ng-repeat="item in items track by $index"> <div on-tap="openGroupDetail()">
+              <a href="javascript:void(0);">
+                <div ng-if="item.pointweight > 0" class="redius_cont color-change"><b>{{item.pointweight}}</b></div>
+                <div ng-if="item.pointweight < 0" class="redius_cont change-color-neg"><b>{{item.pointweight}}</b></div>
+                <div ng-if="item.pointweight == 0" class="redius_cont"><b>{{0}}</b></div>
+                <!-- <div ng-if="item.pointweight < 0" class="redius_cont change-color-neg"><b>{{item.pointweight}}</b></div> -->
+                <div ng-if="item.total_no_of_student == 1"><span><img  ng-src="img/one.png"/></span></div>
+                <div ng-if="item.total_no_of_student == 2"><span><img  ng-src="img/two.png"/></span></div>
+                <div ng-if="item.total_no_of_student == 3"><span><img  ng-src="img/three.png"/></div>
+                <div ng-if="item.total_no_of_student > 3"><span><img  ng-src="img/four.png"/></span></div>
+                <!--<img ng-src='{{imagePath}}/student/{{item.image}}'> --><br>
+                <p>{{item.group_name}}</p>
+
+                <!--<p>{{item.group_name}}</p> -->
+              </a>
+            </div>
+          </div>
+          <div ng-hide="selectallcheck" class="select_all"><img ng-src="img/select_all.png" /><input id="selectall" type="checkbox"  ng-model="all"
+            ng-change="selected(1)"><br>{{check}}<br></div>
+            <div id="check_{{item.id}}" class="col col-25 my-class-box"   ng-hide="selectstudent" ng-repeat="item in items">
+              <input id="item_{{item.id}}" type="checkbox"  ng-selected="all" value="{{item.id}}"
+              ng-model="item.selected" ng-change="selected(item.id)">
+              <div on-tap="checkitem(item.id)">
+                <a href="javascript:void(0);">
+                  <div class="redius_cont">{{item.pointweight}}</div>
+                  <img ng-src='{{imagePath}}/student/{{item.image}}'><br>
+                  <p>{{item.name}}</p>
+                  <h3 style="display:none">{{item.id}}</h3> 
+                </a>
+              </div>
+            </div>
+
+            <div on-tap="openAddGroup()" class="col col-25 my-class-box last-add">
+              <a href="javascript:void(0);" class="">
+                <span class="ion-plus-round" ></span><br />
+                <p>Add</p>
+              </a>
+            </div>
+          </div>
+          <!-- HTML TEMPLATE CODE FOR GROUPS ENDS-->
+        </ion-content>
+        <button id="multiple" class="bar bar-footer new-footer award_footer col col-100" ng-disabled="studentselected" ng-model="count" ng-hide="giveaward" on-tap="awardmultiplestudents()">Give award to {{count}} students</button>
+
+      </div> 
+      <div class="bar bar-footer new-footer" ng-hide="footer">
+        <a href="javascript:void(0);" class="col col-33 footer-box" on-tap="takeAttendance()"><span class="ion-calendar" ></span><p>Attendance</p></a>
+
+        <a href="javascript:void(0);" class="col col-33 footer-box" on-tap="selectmultiple()" ><span class="ion-android-checkbox-outline"></span><p>Award multiple</p></a>
+        <a href="javascript:void(0);" class="col col-33 footer-box" on-tap="ViewReport()"><span class="ion-stats-bars" ></span><p>View Report</p></a>
+       </div>
+    </ion-modal-view>
+

@@ -1,0 +1,65 @@
+<style>
+video::-internal-media-controls-download-button {
+    display:none;
+}
+
+video::-webkit-media-controls-enclosure {
+    overflow:hidden;
+}
+
+video::-webkit-media-controls-panel {
+    width: calc(100% + 30px); / Adjust as needed /
+}
+</style>
+<ion-modal-view class ="model-width">
+  <ion-header>
+    <div ng-hide="classroom" class="bar bar-header new-header back-btn">
+      <a href="javascript:void(0);" on-tap="backPost()"> 
+        <div class="ion-close back-icon col"></div></a>
+        <p class="col col-65">Your Story</p>
+        <div class="dropdown-icon col-25">
+
+        </div>
+      </div>
+
+    </ion-header>
+    <ion-content class="margin-top"  >
+    <form name="formpost" novalidate>
+      <div class="uplod-image add_pic" on-tap="showPopup()" >
+        <a href="javascript:void(0);" >Add photo or video</a>
+        <img class="image_border" ng-src="{{imgURI}}" ng-if="selection==1 || selection==2">
+      </div>
+
+      <div ng-if="selection==3">
+            <video ng-src="{{imgURI}}" class="centerme" controls="controls" ></video>
+            </div>
+      <div class="list">
+      </div>
+
+<div class="col col-100">
+<p   style="display:none">{{stored_classId}}</p>
+<p class="item  my-input my-select new-select col col-100"  >{{classname}}</p>
+
+<!-- <label class="item item-input item-select  my-input my-select add-class-select col col-100">
+             <select class="new-select" ng-model="selectGrade" ng-change="showSelectValue(selectGrade)" ng-required="true">
+              <option  value="">Select class...</option>
+              <option ng-repeat="x in selectGrades" value="{{x.class_id}}">{{x.class_name}}</option>
+            </select> 
+          </label>    -->
+          </div>
+
+
+      <div class="col col-100">
+        <input type="text" placeholder="What's happening in your classroom?"   class="addgroup_search mynew-input" ng-model="postData.message"></div>
+        <div class="list">
+          <a href="javascript:void(0);" class="button button-block button-positive save-btn new-class-btn" on-tap="post()" ng-disabled="formpost.$invalid">Save Post</a>
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>
+</ion-content>
+</ion-modal-view>
+
+
+

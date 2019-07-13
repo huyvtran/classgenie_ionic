@@ -1,0 +1,52 @@
+<ion-modal-view class ="model-width">
+<ion-header>
+<div class="bar bar-header new-header back-btn">
+    <div class="col col-40 responsive-img new_img"><img  ng-src="{{photo_image
+  }}" /></div><p class="col col-85"> &nbsp; &nbsp;  {{username}}</p>
+  <a href="" class="dropdown-icon" on-tap="openSideMenu($event)"><span class="ion-android-more-vertical col"></span></a>
+</div>
+  </ion-header>
+
+      <ion-content class="margin-top">
+<div class="tabs-striped tabs-top tabs-color-light new-tab">
+  </div>
+      
+  <br /> <br />
+<div class="row margin_top">
+<div class="col col-100 invite_parent_student">
+  <div ng-hide="unverified">
+  <button class="button button-positive" on-tap="shownotice()">Invite Parent</button><br><br>
+  <p>Invite your parent to review performance graph</p></div>
+   <div ng-hide="verified"><div class="parent_invite">
+        <div class="row">
+  <!-- <div class="col col-40 responsive-img new_img"><img  ng-src="{{photo_image
+  }}" /></div> -->
+<a href="javascript:void(0)" on-tap="getData()" style="margin-left: 25%"><div class="col col-100 invite_content" style="margin-right: 58%"><h3>View {{username}} report</h3> <p class="repotr-date">{{date}}</p></div></a>   
+</div>
+</div></div>
+   <label class="item item-input parent_box">
+  <input id="stu_code" type="text" placeholder="Ex. SXYRF2C9Q" class="parent_box">
+</label><br>
+<div class="col col-100">
+      <button class="button button-positive date_btn" on-tap="addstudentcode()" >
+            Submit Code
+      </button>
+</div>
+</div></div>
+
+<br><br><br>
+   <!--  <div class="btn_menu"><a href="#student_menu">Student menu  </a></div> -->
+    <div class="list classgenie-list" id="classgenie_school_list">
+          <a class="item image-item new_image_item invte_item school_item" href="javascript:void(0);" ng-repeat="item in mylist_data" id="school_item_{{$index}}" on-tap="selectedItem('school_item_{{$index}}','{{item}}');">
+            <h2>{{item.name}}</h2>
+            <span on-tap="removeStudent(item)"><p class="ion-md-close-circle ion-close new_icon remove"></p></span>
+            <p>{{item.class_name}}</p>           
+          </a>
+          <center ng-hide="disconnected"><b>No class connected</b><br></center>
+    </div>
+
+       </ion-content>
+  </ion-modal-view>
+
+
+      

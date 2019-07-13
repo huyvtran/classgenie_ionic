@@ -1,0 +1,105 @@
+<style>
+video::-internal-media-controls-download-button {
+    display:none;
+}
+
+video::-webkit-media-controls-enclosure {
+    overflow:hidden;
+}
+
+video::-webkit-media-controls-panel {
+    width: calc(100% + 30px); / Adjust as needed /
+}
+</style>
+<ion-modal-view class ="model-width" >
+<ion-header>
+    <div class="bar bar-header new-header back-btn">
+    <a class="col" href="javascript:void(0);" onclick="back_classstory()">
+        <div class="ion-android-arrow-back back-icon"></div>
+    </a>
+    <p class="col-33">{{name_ofClass}}</p>
+    <span class="search_box_new">
+        <div class="searchBar numicons1">
+        <div class="searchTxt" ng-show="ngModel.show">
+        <div class="bgdiv"></div>
+        <div class="bgtxt">
+        <input class="ng-pristine ng-valid  search_input" placeholder="Searching.." ng-model="search_name" type="text"  ng-keyup="searchStory(search_name)">
+        </div>
+        </div>
+        <i class="icon placeholder-icon ion-search right_search" ng-click="search_story();search_name='';ngModel.show=!ngModel.show"></i>
+        </div>
+      </span>
+    
+    </div>
+  </ion-header>
+
+  <ion-content>
+     <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+      </ion-refresher>
+
+  <div class="item item-input post-item">
+        <span class="ion-android-person post-icon"></span>
+        <a href="javascript:void(0)" on-tap="postStory()" class="">What's happening in your classroom?</a>
+        <span class="ion-ios-camera post-media"></span>
+
+   </div>
+<div class="clear"></div>
+
+   <div class="col col-100 no_post" ng-if="showmsg==true">
+   <p style="" >No post available now..</p> 
+   </div>
+
+ <ion-list  ng-model="listdata"> 
+ <ion-item ng-repeat="item in items | filter:removeDollerCharFilter track by $index" margin="10px" margin="10px" class="margin_new_top"> 
+ 
+       
+      <div class="item item-avatar">
+        <img ng-src="{{item.imgURI}}">
+        
+        <h2> {{item.username}}</h2>
+         <h2 ng-if="item.teacher_name.name!=''"> {{item.teacher_name.name}}</h2>
+         
+        <p class="example"><span class="ion-arrow-right-c"></span>{{item.class_name.class_name}}&nbsp;&nbsp;({{item.class_name.grade}})</p>
+        <div class="right-date"><p> {{item.date}}</p></div> </div>
+      
+          <div class="item item-body">
+          <img class="full-image" ng-if="item.ext =='jpg'" ng-src="{{imagePath}}{{item.image_folder}}/{{removeDollerChar(item.image_new)}}" />
+         <div ng-if="item.ext =='mp4' || item.ext =='3gp'">
+            <video ng-src="{{video(item.image)}}" class="centerme" controls="controls" >
+            </video>
+            </div>
+            <p class="massage_text"> {{item.message}}</p>
+        
+           <div class="likes-views">
+              <p on-tap="likes()"><span class="ion-heart"></span><span id="like_icon_{{$index+1}}">{{item.likes}}</span> Likes</p>
+               <p><span class="ion-checkmark-circled"></span>{{item.comment_count}} Comments</p>
+               <h3 style="display:none">{{item.id}}</h3> </div>
+          <div>     
+         <p class="comment-box">
+                  <input type="hidden" id="hid_liked_status_{{$index+1}}" value="{{item.liked}}" />
+                  <a href="javascript:void(0);" class="subdued {{item.liked == 1 ? 'clicked-color': ''}}" on-tap="openLikePage('{{$index+1}}')" id="liked_id_{{$index+1}}"><span class="ion-heart"></span></a>
+                  <a href="javascript:void(0);" class="subdued" on-tap="openCommentPage()"><span class="ion-chatbox-working"></span>
+                  <p style="display:none">{{item.imgURI}}</p></a>
+                  </p>
+                  <div class="icon-right" on-tap="openCommentMenu($event)">
+                     <span class="ion-android-more-vertical"></span>
+                  </div>
+         
+          </div>  
+       </div>
+
+      </ion-item>
+      </ion-list>
+
+      <div class="clearfix" ></div>
+      </br> </br></br>
+       <center><button class="more-btn" on-tap="pagging()" ng-if="postCount>9">More</button></center> 
+       
+     
+</ion-modal-view> </ion-content>
+
+ 
+ 
+

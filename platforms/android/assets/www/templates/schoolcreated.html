@@ -1,0 +1,26 @@
+<ion-modal-view class ="model-width" ng-controller="sendinvite">
+  <ion-header>
+    <div ng-hide="classroom" class="bar bar-header new-header back-btn">
+      <a href="javascript:void(0);">
+        <div class="ion-close back-icon col" on-tap="closepopup()"></div>
+      </a>
+      <p class="col col-65">{{school}}</p>
+      <div class="dropdown-icon col-25">
+        <a href="javascript:void(0);" class="post_text" on-tap="closepopup()">Skip</a>
+      </div>
+    </div>
+  </ion-header>
+  <ion-content class="margin-top">
+    <div class="list profile-edit">
+      <p class="col-90 text_center">{{school}}</p>
+      <div class="profile feild"> 
+        <p>You are the first person added for this school</p>
+        <div class="list">
+          <button class="button button-block button-positive save-btn new-class-btn" on-tap="inviteteachers()">
+            Invite other teachers
+          </button>  
+        </div>           
+      </div> 
+    </div>
+  </ion-content>
+</ion-modal-view>

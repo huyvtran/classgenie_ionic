@@ -1,0 +1,62 @@
+<!-- <ion-modal-view class ="model-width">
+<ion-header>
+    <div class="bar bar-header new-header back-btn">
+    <a href="javascript:void(0);" on-tap="comment_goBack()">
+    <div class="ion-android-arrow-back back-icon col"></div></a>
+  <p class="col-65">{{teacher_name}}</p>
+  </div>
+  </ion-header>
+
+  <ion-content>
+  <div class="margin_new_top item in items ">
+  <div class="item item-avatar">
+    <img ng-src="{{imgURI}}">
+    <h2>{{teacher_name}}</h2>
+    <p class="example"><span class="ion-arrow-right-c"></span>{{nameOfClass}}</p>
+    <div class="right-date"><p> 5 h</p></div>
+  </div>
+
+  <div class="item item-body new_item_body">
+    <img class="full-image" ng-src="{{imagePath}}{{imagefolder}}/{{image}}" >
+    <p>
+      {{message}}
+    </p>
+    
+     <div class="likes-views">
+     <p><span class="ion-heart" on-tap="likes()"></span>{{like}} Likes</p>
+     <p><span class="ion-checkmark-circled"></span>{{commentCount}} Views</p>
+     <h3 style="display:none">{{postId}}</h3> 
+     </div>
+       
+    </div>
+
+  <ion-list  ng-model="listdata">  
+    <ion-item  ng-repeat="item in items track by $index" class="user_commet_box">
+    
+      <a class="item item-thumbnail-left image-item new_image_item invte_item comments_border comment_img" >
+    
+      <img ng-src="img/m_1.png" class="right_user_img">
+      
+      <span class="user_neme_comment">{{item.name}}</span>
+      
+      <p>{{item.comment}}</p>
+      <h3 style="display:none">{{item.id}}</h3> 
+      <button class="button right new_right" on-tap="delete_comment()" >Delete</button>
+      </a>
+    </ion-item>
+    </ion-list> 
+    </div> 
+ 
+    </ion-content>
+  
+    <ion-footer-bar keyboard-attach class="bar-stable item-input-inset footer_chat">
+      <label class="item-input-wrapper chat_wrapper">
+        <input type="text"  class="chat_text" placeholder="Add Your Comment" on-return="sendMessage(); closeKeyboard()" ng-model="data.message" on-focus="inputUp()" on-blur="inputDown()" />
+      </label>
+      <button class="button button-clear" on-tap="sendMessage()">
+        <i class="ion-android-send"></i>
+      </button>
+    </ion-footer-bar>
+</ion-modal-view>
+
+ -->

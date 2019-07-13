@@ -1,0 +1,35 @@
+<ion-modal-view class ="model-width">
+
+  <ion-header>
+    <div class="bar bar-header new-header back-btn">
+      <p class="col col-65">Classgenie</p>
+      <a href="javascript:void(0);" class="dropdown-icon" on-tap="openSideMenu1($event)"><span class="ion-android-more-vertical col"></span></a>
+</div>
+  </ion-header>
+  <ion-content>
+    <div class="tabs-striped tabs-top tabs-color-light new-tab">
+      <div class="list classgenie-list ">
+        <div class="header-box"><p>Your Kids</p></div>
+
+        <div class="list classgenie-list">
+          <ion-list id="student_list" ng-model="listdata">
+
+          <ion-item class="item-avatar item item-thumbnail-left image-item" ng-repeat="item in items | unique:'name'" on-tap="openSideMenuAssignment(item.name,item.class_name,item.class_id)">
+            <img ng-src="{{imagePath}}student/{{item.image}}" /> 
+             <h2 ng-model="className">{{item.name}}</h2>
+            <h3 ng-model="classID" style="display:none">{{item.class_id}} </h3> 
+            <h3 ng-model="stdno" style="display:none">{{item.student_no}} </h3> 
+            <h4 ng-model="memno" style="display:none">{{item.member_no}} </h4>
+            <h4 ng-model="pac_no" style="display:none">{{item.parent_ac_no}} </h4>
+          </ion-item>
+        </ion-list>
+      </div>
+
+
+    </div>
+    
+    
+  </div>
+</div>
+</ion-content>
+</ion-modal-view>

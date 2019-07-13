@@ -1,0 +1,78 @@
+<style>
+video::-internal-media-controls-download-button {
+    display:none;
+}
+
+video::-webkit-media-controls-enclosure {
+    overflow:hidden;
+}
+
+video::-webkit-media-controls-panel {
+    width: calc(100% + 30px); / Adjust as needed /
+}
+</style>
+<ion-view >
+
+    <ion-content class="no_space">
+        <!-- <div>
+
+            
+        </div> -->
+
+        <!-- pending story div -->
+        <div class="col-100 new-list">
+
+            <div class="item item-input post-item new_post">
+                <span class="ion-android-person post-icon"></span>
+                <a href="javascript:void(0)" on-tap="postStory()" class="">Post your story</a>
+                <span class="ion-ios-camera post-media"></span>
+            </div> 
+
+            <ion-list  ng-model="listdata">
+                <ion-item class="list card top-position" ng-repeat="item_pend in items2| filter:removeDollerCharFilter track by $index" margin="10px" class="margin_new_top"> 
+
+
+                    <div class="item item-avatar ">
+                        <img ng-src="{{imgURI}}">
+                        <h2>{{item_pend.class_name}}</h2>
+                        <p class="example"><span class="ion-arrow-right-c"></span>{{item_pend.username}}</p>
+                        <div class="right-date"><p> {{item_pend.date}}</p></div><br/>
+                        <div class="right-date" ng-if="item_pend.status==1"><p>Approved</p></div>
+                         <div class="right-date" ng-if="item_pend.status==0"><p>Not approved</p></div>
+                    </div>
+
+
+                    <div class="item item-body">
+                        <div ng-if="item_pend.ext == 'jpg'">
+                            <img class="full-image" ng-src="{{imagePath}}student_stories/{{item_pend.image}}" >
+
+
+                        </div>
+
+                        <div ng-if="item_pend.ext == 'mp4' || item_pend.ext == '3gp'">
+                            <video ng-src="{{video(item_pend.image)}}" class="centerme" controls="controls" ></video>
+                        </div>
+                        <p>
+                            {{item_pend.message}}
+                        </p>
+                        </div> 
+
+                       <div class="icon-right margin_bottom" on-tap="opendelete($event)">
+                           <span class="ion-android-more-vertical"></span>
+                            <p style="display:none">
+                            {{item_pend.id}}
+                        </p>
+                       </div>
+
+                    </div>
+
+                </ion-item>
+            </ion-list> 
+
+            <!-- <div class="clearfix"></div> -->
+            <center><button class="more-btn new-more" on-tap="pagging()" ng-if="postCount>=10">More</button></center> 
+        </div> 
+
+
+    </ion-content>
+</ion-view>

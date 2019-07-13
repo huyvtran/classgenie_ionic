@@ -1,0 +1,46 @@
+<ion-modal-view class ="model-width">
+
+<ion-header>
+    <div class="bar bar-header new-header back-btn">
+    
+
+    <p class="col-90">Welcome</p>
+
+    
+    </div>
+</ion-header>
+<ion-content>
+  <div class="tabs-striped tabs-top tabs-color-light new-tab">
+  <div class="list classgenie-list invite_parents">
+       <a class="item item-avatar" href="javascript:void(0)" on-tap="all_story()" id="lnk_all_parents" >
+       <!--  <img ng-src="{{imagePath}}assets/class/{{classImage}}"> -->
+        <h2>Whole Class Story</h2>
+        </a>
+  
+  <div class="list classgenie-list">
+            <ion-list id="student_list" ng-model="listdata">
+          
+            <ion-item class="item-avatar item item-thumbnail-left image-item" ng-repeat="item in items track by $index"  
+            on-tap="open_class_story()">
+            <img ng-src="{{imagePath}}student/{{item.image}}" /> 
+            <h2 ng-model="className">{{item.name}} </h2>
+            <h3 ng-model="class_id"   style="display:none">{{item.class_id}} </h3> 
+            <h3 ng-model="student_no" style="display:none">{{item.student_no}} </h3>
+            <h3 ng-model="parent_no"  style="display:none">{{item.parent_ac_no}} </h3>
+            </ion-item>
+            </ion-list>
+  </div>
+  </div>
+<div class="list classgenie-list">
+<a href="javascript:void(0);" on-tap="parent"><div class="header-box"><p>+ Add a parent code</p></div></a>
+<div class="col-100">
+      <a class="item item-thumbnail-left image-item" href="javascript:void(0);" on-tap="shareSocial()">
+      <img ng-src="img/refer_teacher.png" >
+      <h2>Share classgenie</h2>
+      
+      </a>
+</div>
+</div>
+</div>
+</ion-content>
+</ion-modal-view>

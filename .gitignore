@@ -1,14 +1,4 @@
 # Specifies intentionally untracked files to ignore when using Git
 # http://git-scm.com/docs/gitignore
 
-platforms/
-plugins/
-/www/json/config.json
-/www/json/config1.json
-/www/json/config_local.json
-/www/json/config_staging.json
-/www/json/config_live.json
-/www/json/config_local.json
-/www/json
-/nbproject/private/ 
-/ionic.project
+

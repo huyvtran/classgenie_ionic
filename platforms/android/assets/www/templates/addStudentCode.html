@@ -1,0 +1,25 @@
+<ion-header>
+  <div class="bar bar-header new-header">
+    <h1 class="title">Student Signup</h1>
+  </div>
+  <ion-content class="body-back">
+    <form  class="login-form" ng-controller="studentRegister">
+      <div class="col logo-img">
+        <img ng-src="img/logo.png" / ><br>
+      </div>
+      <div ng-hide="message" class="chat-bubble new_right">
+        <div class="message"><span>The student code should be of minimun 7 charecters for Ex. S123543</span>
+        </div></div>
+        <div class="list">
+          <div class="item item-input new-item" id ="user">
+            <span  class="ion-android-person login-icon"></span>
+            <input  ng-focus="numberfocus()" type="text" placeholder="ex.S123456" ng-model="loginData.studentcode" ng-hide="loginData.checkcode">
+            <span  class="ion-help-circled" on-tap="toggleCustom()"></span>
+          </div>
+        </div>
+        <button class="button button-block submit-btn" on-tap="checkUserName()" id="checkuser">Check Username
+        </button>
+      </form>
+    </ion-content>
+
+

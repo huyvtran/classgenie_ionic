@@ -1,0 +1,59 @@
+<ion-modal-view class ="model-width">
+
+    <ion-header>
+        <div class="bar bar-header new-header back-btn">
+
+            <a href="javascript:void(0)" on-tap="backPage()"> 
+                <div class="ion-android-arrow-back back-icon col"></div></a>
+            <div class="asigment_add col-65">Notifications</div>
+             
+            
+        </div>
+    </ion-header>
+    <form name="form_notification" id="form_notification">
+    <ion-content><br /></br><br /></br>
+   <!--  <div class="row">
+        <label class="checkbox">
+           <input type="checkbox" ng-model="all" value="{{item.student_no}}">            
+           </label>
+    </div> -->
+
+    <ul class="list">
+        <li class="item item-checkbox" ng-repeat= "item in items">
+           {{item.name}}
+           <span ng-if="item.status == 0">(Not Reg)</span>
+
+           <!--  if student resistered and notification has been sended -->
+
+          <label class="checkbox" ng-if="item.notification_status == 1 && item.status == 1">
+           <input type="checkbox"  ng-checked="true"  ng-disabled="true" name="student_no[]" value="{{item.student_no}}">
+          `</label>
+
+          <!-- end  -->
+
+          <!--  if student resistered and notification is not  send -->
+           <label class="checkbox" ng-if="item.notification_status == 0 && item.status == 1">
+           <input type="checkbox"   name="student_no[]" value="{{item.student_no}}"> 
+           </label>
+           <!-- end  -->
+
+           <!--  if student is not resistered and notification is not  send -->
+          <label class="checkbox" ng-if="item.notification_status == 0 && item.status == 0">
+           <input type="checkbox" ng-checked="true"  ng-disabled="true"   name="student_no[]" value="{{item.student_no}}"> 
+           </label>
+            <!-- end  -->
+
+        </li>
+    </ul>
+
+
+       
+    <div class="row">
+    <button class="button button-clear white_color button-full button-positive date_btn" ng-click="send_notification_post()">
+       Send
+    </button>
+</div>
+
+    </ion-content>
+</form>
+</ion-modal-view>

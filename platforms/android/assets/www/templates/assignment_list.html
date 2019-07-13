@@ -1,0 +1,117 @@
+<ion-modal-view class ="model-width">
+
+    <ion-header>
+        <div class="bar bar-header new-header back-btn">
+
+            <a href="javascript:void(0)" on-tap="backPage()"> 
+                <div class="ion-android-arrow-back back-icon col"></div></a>
+            <div class="asigment_add col-65">Assignment List ({{classname}})</div>
+            <div class="col right_col"><a href="javascript:void(0)" ng-click="create_assignment()"><span class="ion-ios-plus-outline"></span></a></div>
+
+        </div>
+    </ion-header>
+
+    <ion-content> 
+
+        <br><div class="tabs-striped tabs-top tabs-color-light new-tab">
+            <div class="list classgenie-list invite_assignment">
+                <div class="header-box"><p></p></div>
+                <div class="row">
+            <div class="col col-100">                             
+            <div class="list list-inset search_input_new">
+              <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search"  ng-model="searchKeyword">
+              </label>
+            </div>
+</div></div>
+     <form name="assignment_form" id="assignment_form">
+       <div class="row">
+            <div class="col col-50 left_flot">
+                <div class="list list-inset search_input_new">
+              <label class="item item-input">
+                <i class="icon ion-ios-calendar-outline placeholder-icon"></i>
+                <input type="text" placeholder="Start date" class="form-control" ng-model="fromDate" onfocus="(this.type='date')" ng-required="true">
+              </label>
+            </div>
+            </div>      
+
+          
+               <div class="col col-50 left_flot">                
+               
+               <div class="list list-inset search_input_new">
+              <label class="item item-input">
+                <i class="icon ion-ios-calendar-outline placeholder-icon"></i>
+                <input type="text" placeholder="End date" class="form-control" ng-model="toDate" onfocus="(this.type='date')" ng-required="true">
+              </label>
+            </div>     
+
+            </div>
+ </div>   
+    </form> 
+       <div class="row"> 
+    <button class="button button-full serch_box_ne col col-100" ng-click="loadSearchData(fromDate,toDate)" ng-disabled="assignment_form.$invalid">Search
+           </button> </div>
+             </div>           
+
+            </div> 
+
+
+        <p align="center" ng-if="datanotfound==true">No Assignment Available Yet !</p>
+
+        <div class="list card" ng-class="addClass(item.submition_date)" ng-repeat="item in items | filter:{ title:searchKeyword } | limitTo: itemsLimit()">
+
+            <div class="item atachment_title">
+
+                <h2 class="">{{item.title}}</h2>
+                <span class="tap_btn" on-tap="submitted_assignment_list({{item.id}})">
+                {{item.total_student_submit_count}}/{{totalCount}}
+              </span>    
+ 
+
+            </div>
+
+            <div class="item item-body" ng-class="addClass(item.submition_date)">
+                <p>{{item.description}} </p>
+                <hr class="horizontal_border">
+                <span class="ion-archive attachment" ng-if="item.attachment" ng-click="openPdf(item.attachment)">&nbsp;Attachment: {{item.attachment}} </span> 
+                <hr ng-if="item.attachment" class="horizontal_border">
+                   
+                <p ng-if="item.created_date!=''">Date: {{item.created_at | date:'dd-MMM-yyyy'}}</p>
+                <hr class="horizontal_border">
+
+
+                
+                <p ng-if="item.created_date!=''">Submission Date: {{item.submition_date | date:'dd-MMM-yyyy'}}</p>
+                <hr class="horizontal_border">
+
+
+
+                <div class="btn_edit"> 
+
+                    <a href="javascript:void(0)" data-ng-click="send_notifications({{item.id}})" class="subdued button button-stable send_btn"><span class="ion-android-notifications-none"></span>Send</a>
+
+                    <a href="javascript:void(0)" ng-if="item.total_student_submit_count == 0" data-ng-click="editAssignment({{item}})" class="subdued button button-stable edit_btn"><span class="ion-edit"></span>Edit</a>
+
+                    <a href="javascript:void(0)" ng-if="item.total_student_submit_count != 0" ng-disabled="true" data-ng-click="editAssignment({{item}})" class="subdued button button-stable disable_edit_btn"><span class="ion-edit"></span>Edit</a>
+
+
+                    <a href="javascript:void(0)" class="subdued button button-stable del_btn" ng-click="removeAssignment({{item.id}})"><span class="ion-android-remove-circle"></span>Delete</a>
+
+                </div>
+
+            </div>
+
+             
+
+
+           
+
+        </div>   
+            <div class="clearfix" ></div>
+            <center><button class="more_btn_new" ng-show="hasMoreItemsToShow()" ng-click="showMoreItems()" ng-if="listsize >0">Load More</button>
+               </center>
+    </ion-content>
+
+
+</ion-modal-view>

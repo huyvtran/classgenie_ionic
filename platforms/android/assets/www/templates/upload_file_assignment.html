@@ -1,0 +1,37 @@
+<ion-modal-view class ="model-width" ng-controller="createAssignCtrl">
+    <ion-header>
+        <div class="bar bar-header new-header back-btn">
+
+            <a href="javascript:void(0)"> 
+                <div class="ion-android-arrow-back back-icon col" ng-click="back()"></div>
+            </a>
+
+
+                <div class="addclass col-65" ng-click="back()">Add assignment</div>
+             
+        </div>
+    </ion-header>
+
+<ion-content ng-controller="upload_file_assignmentCtrl">
+<form name="assignment_submit">
+<div class="list add-student">
+
+
+<p class="row">File path:{{filename}}</p>
+<div class="row">
+
+<button class="button button-full button-positive" ng-click="uploadfile()">
+                      Upload File
+</button>
+</div>
+
+
+<div class="row">
+    <button class="button button-clear white_color button-full button-positive date_btn " ng-click="summit_assignment()" ng-disabled="assignment_submit.$invalid">
+       Submit
+    </button>
+</div>
+</div>
+</form>
+
+</ion-content>

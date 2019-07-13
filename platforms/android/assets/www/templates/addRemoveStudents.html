@@ -1,0 +1,26 @@
+<ion-modal-view class ="model-width"> 
+
+  <ion-header>
+    <div class="bar bar-header new-header back-btn">
+      <a href="javascript:void(0);" class="back-btn stu_back" on-tap="closeEditStudent()"><span class="ion-android-arrow-back back-icon col"  ></span></a>
+      <p class="col-80">Add or remove student code</p>
+    </div>
+  </ion-header>
+
+  <ion-content class="margin-top">
+    <div class="list">
+      <div class="profile feild responsive-sm btn_add_code"> 
+        <br />
+        <a href="javascript:void(0)"><div on-tap="addStudentCodePopup()" class="largeinput"><span><h3>Add student Code</h3></span></div></a><br />
+        <div class="list classgenie-list" id="classgenie_school_list">
+          <a class="item image-item new_image_item invte_item school_item" href="javascript:void(0);" ng-repeat="item in mylist_data" id="school_item_{{$index}}" on-tap="selectedItem('school_item_{{$index}}','{{item}}');">
+            <h2>{{item.name}}</h2>
+            <span on-tap="removeStudent(item)"><p class="ion-ios-minus ion-close new_icon remove"></p></span>
+            <p>{{item.class_name}}</p>           
+          </a>
+          <center ng-hide="disconnected"><b>No class Connected</b><br></center>
+        </div>
+      </div> 
+    </div> 
+  </ion-content>
+</ion-modal-view>

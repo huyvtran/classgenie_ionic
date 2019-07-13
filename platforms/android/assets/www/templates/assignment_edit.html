@@ -1,0 +1,69 @@
+<ion-modal-view class ="model-width" >
+    <ion-header>
+        <div class="bar bar-header new-header back-btn">
+
+              <a href="javascript:void(0)"> 
+                <div class="ion-android-arrow-back back-icon col" ng-click="back()"></div>
+            </a>
+
+            <div class="asigment_add col-65">Edit Assignment</div>
+            
+        </div>
+    </ion-header>
+
+    <ion-content>
+        <div class="list add-student add-student-list">
+
+            <div class="row">
+                <div class="col col-100"><label class="">  
+                        Title
+                        <input type="text" class="addgroup_search boder-none mynew-input" id="title" ng-model="title">
+                        <div class="time_right"> 
+                            <div>    
+                            </div>
+                        </div>
+                    </label>
+
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-100">
+                <label class="exampleInput">
+                        Submission Date                       
+                        
+                        <input type="date" id="exampleInput"  name="input" ng-model="example.value"/>
+                        <div class="time_right"> 
+                            <div>    
+                            </div>
+                        </div>
+                </label>
+             </div>
+            </div>
+            <div class="row">
+                <div class="col col-100">
+                    <label>Description
+                        <textarea rows="8" class="addgroup_search mynew-input" id="description" ng-model="description"></textarea>
+                    </label>
+
+                </div>
+            </div>
+
+            <br />
+            <p >File name: <h3 id="assignment_url2">{{assignment_url}}</h3></p>
+            <!-- <p >File name: {{filename}}</p> -->
+
+            <div class="row">
+                <button class="button button-full button-positive gray-color" ng-click="filepathChooser()">
+                    Select File
+                </button> 
+            </div> 
+
+            <div class="row">
+                <button class="button button-clear white_color button-full button-positive date_btn " ng-click="editAssignmentPost()">
+                    Submit
+                </button></div>
+    </ion-content>  
+
+</ion-modal-view>

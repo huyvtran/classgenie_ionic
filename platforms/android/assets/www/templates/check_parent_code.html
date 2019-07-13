@@ -1,0 +1,30 @@
+<ion-modal-view class ="model-width"  >
+
+	<ion-header>
+		<div class="bar bar-header new-header back-btn">
+			<a href="javascript:void(0);" on-tap="goBack()"><div class="ion-android-arrow-back back-icon col"></div></a>
+			<p class="col col-80">Add a parent code</p>
+
+		</div>
+	</ion-header>
+	<ion-content class="margin-top new_margin"  ng-controller="checkParentCtrl">
+
+
+		<div class="list">
+			<br />
+			<div class="profile feild responsive-sm"> 
+				<form name="formCode" novalidate>
+					<label class="place-color item item-input my-input col col-100">
+						<input type="text" placeholder="P12345." class="place-color" ng-model="code" ng-required="true" class="my-input">
+					</label>
+
+
+					<button class="button button-block button-positive save-btn" ng-disabled="formCode.$invalid"  on-tap="checkCode()">Check Code</button>
+				</div> 
+			</form>
+		</div> 
+	</div>
+
+</div>
+</ion-content>
+</ion-modal-view>

@@ -1,0 +1,38 @@
+<ion-modal-view ng-controller="groupListCtrl">
+  <ion-header>
+    <div class="bar bar-header new-header back-btn">
+
+      <a href="javascript:void(0);" on-tap="group_list_goBack()"><div class="ion-close back-icon" ></div></a>
+
+      <p class="col col-70">Choose Students</p>
+
+      <div class="dropdown-icon col col-25">
+        <a href="javascript:void(0);" on-tap="addselected()">
+          <div class="ion-checkmark back-icon"></div>
+        </a></div>
+
+      </div>
+    </ion-header>
+    <ion-content>
+      <form name="formGroupStudent" novalidate>
+
+        <div class="list add-student">
+          <div class="row">
+            <div class="col"><label class="item item-input">
+
+              <input type="text" placeholder="Select student" ng-model="student_name" id="student_name" ng-required="true">
+            </label></div>
+
+          </div>
+          <ion-list id="student_list" ng-model="listdata">
+            <ion-item class="item-avatar" id="stu_{{item.student_no}}" ng-repeat="item in items track by $index" on-tap="select_student(item)" ng-class="{{item.student_no}}">
+              <img ng-src="{{imagePath}}assets/student/{{item.image}}"/><p>{{number}}</p>
+              <h2>{{item.name}}</h2><h1>{{item.value}}</h1>
+              <input type="checkbox" style="display:none" id="stu_{{item.student_no}}" value="{{item.student_no}}" ng-model="data.member_no" ng-change="addselected(item)" ng-checked="data.member_no" ng-init="data.member_no = item.student_no">
+              <h3 ng-model="studentID" style="display:none">{{item.student_no}} </h3> 
+            </ion-item>
+          </ion-list>
+        </div>
+        </form>
+      </ion-content>
+    </ion-modal-view>

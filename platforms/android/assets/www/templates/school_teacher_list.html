@@ -1,0 +1,38 @@
+<ion-modal-view class ="model-width" ng-controller="ctrlSchoolTeacherList"> 
+  <ion-header>
+    <div ng-hide="classroom" class="bar bar-header new-header back-btn">
+      <a href="javascript:void(0);" on-tap="closepopup()">
+        <div class="back-icon left-icon ion-close col">
+        </div></a>
+        <p class="col col-65">{{school}}</p>
+        <div class="dropdown-icon col-25">
+          <a href="javascript:void(0);" class="post_text" on-tap="closepopup()">SKIP</a>
+        </div>
+      </div>
+    </ion-header>
+    <ion-content class="margin-top">
+      <div class="col col-100 school-heading">
+        <div><h3 class="school_name text_center"><center>{{school}}</center></h3></div><div class="clear"></div>
+        <div class="school-addres col-100 text_center">{{schooladd}}</div>
+        <button class="button button-block button-positive save-btn" on-tap="cnfbox()">
+          Join this School
+        </button>
+
+        <div class="all_teacher" id="student_list" ng-model="listdata"><p>All Teacher ({{listsize}})</p>
+
+          <ion-item class="item-avatar" ng-repeat="item in items">
+              <img  ng-if="item.image" ng-src="{{imagepath}}/{{item.image}}">
+              <img  ng-if="!item.image" ng-src="img/chat_user.png">
+            <h2 class="teacher_list" ng-model="teacher">{{item.name}} </h2>
+            <h3 ng-model="email">{{item.email}}</h3> 
+          </ion-item>
+        </div>
+      </div>
+
+    </div>
+  </ion-content>
+  <div class="bar bar-footer new-footer">
+    <a href="javascript:void(0)" on-tap="closepopup()" class="col footer-box"><p><strong>I'm not in a school</strong></p></a>
+    <!-- 	<a href="javascript:void(0)" on-tap="sendRequestTeacherlist()" class="col col-50 footer-box"><p><strong>Request to join school</strong></p></a> -->
+  </div>
+</ion-modal-view>

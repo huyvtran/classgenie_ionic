@@ -1,0 +1,66 @@
+<ion-modal-view class ="model-width poop_award">
+<ion-content >
+     <ion-header>
+      <div class="bar bar-header new-header back-btn">
+       <a href="javascript:void(0);" class="back-icon"><i class="ion-close col" on-tap="goBack()"></i></a>
+          <p class="col-60 ng-binding">Edit Skills</p>
+        </div>
+      </ion-header>
+
+<br /><br /><br />
+
+<div class="col feedback_tab">
+
+  <button class="button button-positive new_tab_btn" id="pskillbutton" on-tap="positiveButton()"  ng-model="myValue">
+    Positive
+  </button>
+
+  <button class="button button-positive new_tab_btn color_change" id="nskillbutton" on-tap="needButton()" ng-model="myValue2">
+    Needs work
+  </button>
+</div>
+
+
+
+<div class="row responsive-sm tab_content" id="positiveskills" ng-show="positiveskill">
+
+<div class="col col-25 my-class-box" ng-repeat="item in class_award_items track by $index" on-tap="editSkill()">
+  <a href="javascript:void(0);">
+    <div class="redius_cont color-change">{{item.pointweight}}</div>
+    <img ng-src="{{imagePath}}/skill/{{item.image}}" ><br>
+    <p>{{item.name}}</p>
+    <h3  style="display:none">{{item.id}} </h3> 
+
+  </a>
+</div>
+
+<div on-tap="addNewSkill()" class="col col-25 my-class-box last-add">
+<a href="javascript:void(0);" class="">
+  <span class="ion-plus-round" ></span><br />
+  <p>Add </p>
+  </a>
+  </div>
+</div>
+
+  <div class="row responsive-sm tab_content"  id="needskills"  ng-show="needsworkskill">
+
+<div class="col col-25 my-class-box new_box" ng-repeat="item in class_needwork_items track by $index" on-tap="editSkill()">
+  <a href="javascript:void(0);">
+    <div class="redius_cont change-color-neg">{{item.pointweight}}</div>
+    <img ng-src="{{imagePath}}/skill/{{item.image}}" ><br>
+    <p>{{item.name}}</p>
+    <h3  style="display:none">{{item.id}}</h3></a>
+  </div>
+
+<div on-tap="addNeedWork()" class="col col-25 my-class-box last-add">
+<a href="javascript:void(0)" class="">
+  <span class="ion-plus-round" ></span><br />
+  <p>Add need</p>
+  </a>
+  </div>
+</div>
+
+  
+</ion-content>
+
+</ion-modal-view>

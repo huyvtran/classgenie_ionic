@@ -1,0 +1,33 @@
+<ion-header>
+  <div class="bar bar-header new-header back-btn">
+    <a href="javascript:void(0)" onClick="add_student_goBack()"><div class="ion-close back-icon" ></div></a>
+    <p class="col col-70">Add New Student</p>
+    <div class="dropdown-icon col col-25">
+      <a href="#/inviteparent"><div class="right_icon">
+        <div class="ion-checkmark back-icon"></div>
+      </div></a>
+    </div>
+  </div>
+</ion-header>
+<ion-content  ng-controller="addStudentCtrl" >
+  <form name="formAddStudent" novalidate>
+    <div class="list add-student">
+      <div class="row">
+        <div class="col col-75"><label class="item item-input">
+          <input type="text" placeholder="Student name" ng-model="student_name" id="student_name" ng-required="true">
+        </label></div>
+        <div class="col ">
+          <button class="button add-btn" on-tap="addStudent()" ng-disabled="formAddStudent.$invalid">
+            Add
+          </button>
+        </div>
+      </div>
+      <ion-list id="student_list" ng-model="listdata">
+        <ion-item class="item-avatar" ng-repeat="item in items track by $index" on-tap="openParentPage()">
+          <img ng-src="{{imagePath}}assets/student/{{item.image}}"  />
+          <h2>{{item.name}} </h2>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-content>
+</ion-modal-view>

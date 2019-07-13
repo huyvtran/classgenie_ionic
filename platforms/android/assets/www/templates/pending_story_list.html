@@ -1,0 +1,77 @@
+<style>
+video::-internal-media-controls-download-button {
+    display:none;
+}
+
+video::-webkit-media-controls-enclosure {
+    overflow:hidden;
+}
+
+video::-webkit-media-controls-panel {
+    width: calc(100% + 30px); / Adjust as needed /
+}
+</style>
+<ion-modal-view class ="model-width"  >
+  <ion-header>
+    <div class="bar bar-header new-header back-btn">
+      <a href="javascript:void(0)" ng-click="goBackstory()"> 
+        <div class="ion-android-arrow-back back-icon col" ></div>
+      </div></a>
+    
+  </ion-header>
+  <ion-content class="margin-top new_margin"  >
+   <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+      </ion-refresher>
+
+     <!-- pending story div -->
+<div class="col-100 new-list" ng-hide="pendingShow">
+
+<p ng-if="zerocount==0" align="center">There is no story available now!</p>
+
+<ion-list  ng-model="listdata">
+   <ion-item class="list card top-position" ng-repeat="item_pend in items2 | filter:removeDollerCharFilter track by $index" margin="10px" class="margin_new_top" ng-if='item_pend.status==0'> 
+
+
+  <div class="item item-avatar ">
+    <img ng-src="img/status_profile.png?{{randNO}}" ng-if="item_pend.image_name==''">
+    <img ng-src="{{imagePath}}profile_image/{{item_pend.image_name}}?{{randNO}}" ng-if="item_pend.image_name!=''">
+
+    <h2>{{item_pend.class_name}}</h2>
+        <p class="example"><span class="ion-arrow-right-c"></span>{{item_pend.username}}</p>
+        <div class="right-date"><p> {{item_pend.date}}</p></div>
+      </div>
+  
+
+  <div class="item item-body">
+    <div ng-if="item_pend.ext =='jpg'">
+          <img class="full-image" ng-src="{{imagePath}}student_stories/{{item_pend.image}}" >
+         
+          </div>
+          
+            <div ng-if="item_pend.ext =='mp4' || item_pend.ext =='3gp'">
+            <video ng-src="{{video(item_pend.image)}}" class="centerme" controls="controls" ></video>
+            </div>
+            <p>
+            {{item_pend.message}}
+            </p>
+    
+           
+<div ng-if='item_pend.status==0'> <button class="button left_appr" on-tap="approve_story()" >Approve</button> <button class="button right_appr" on-tap="unapprove_story()" >Unapprove</button></div>
+
+ </div>
+
+
+ </div>
+
+
+</ion-item>
+</ion-list> 
+
+      <div class="clearfix"></div>
+       <center><button class="more-btn new-more" on-tap="pagging()" ng-if="status_val=='Success'">More</button></center> 
+</div> 
+   
+</ion-content>
+</ion-modal-view>

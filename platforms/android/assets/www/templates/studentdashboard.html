@@ -1,0 +1,48 @@
+<ion-modal-view class ="model-width">
+  <ion-header>
+
+  <div class="bar bar-header new-header back-btn">
+   <a href="" on-tap="goBack();"><span class="ion-android-arrow-back back-icon"></span></a>
+      &nbsp; &nbsp; <p class="col-65">{{username}}</p>
+    </div>
+  </ion-header>
+  <ion-content class="margin-top">
+  <br><br><br>
+    <div class="list classgenie-list">
+      <div class="padding-new">
+        <div class="row" ng-hide="verified">
+          <div class="col col-50 student-l" on-tap="selectClass()"><span class="ion-android-list" id="sp_selected_class">&nbsp;{{class}}</span></div>
+          <div class="col col-50 student-lo"><span class="ion-ios-bookmarks" on-tap="selectDate($event)" id="sp_selected_date">&nbsp;{{datetokenview}}</span></div>
+        </div>
+      </div>
+      <div class="row" ng-hide="datearea">
+      <div class="col col-100"><br><br>
+      <center><span>{{range}}</span></center>
+       <a href="javascript:void(0)" on-tap="shownotice()" class="invite_link"><div ng-hide="unverified" class="unverifie_parent">
+       <center>
+  <span class="ion-email-unread"></span>
+        <p>can't review Performance without parents invitation</p></center></div></a></div></div>
+        <div class="monester-img" ng-hide="verified">
+        <div ng-hide="nograph"><img src="img/graph.png" />
+          <div class="positive_1"><span>No points for current date selected</span></div>
+        </div>
+        <div ng-hide="graph" id="chart-container" class="graph">Loading Performance graph</div>
+        </div> 
+      </div> 
+      <div class="list classgenie-list student_list" ng-hide="verified">
+        <div class="header-box"><p>{{currday}}</p></div>
+
+        <ion-list ng-repeat = "item in award_data">
+          <a class="item item-thumbnail-left image-item" href="javascript:void(0)">
+            <img ng-src="{{imagePath}}skill/{{item.customize_detail.image}}">
+            <div ng-if="item.point > 0"><h2><strong>+{{item.point}} for {{item.customize_detail.name}}</strong></h2></div>
+            <div ng-if="item.point < 0"><h2><strong>{{item.point}} for {{item.customize_detail.name}}</strong></h2></div>
+            <p class="border">by {{item.class_name.teacher_name}} ({{item.class_name.class_name}})</p>
+             </a>
+        </ion-list> 
+      </div>
+    </ion-content>
+
+  </ion-modal-view>
+
+

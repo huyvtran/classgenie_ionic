@@ -1,0 +1,46 @@
+<ion-modal-view class ="model-width"  >
+
+<ion-header>
+    <div class="bar bar-header new-header back-btn">
+       <a href="javascript:void(0)" onClick="edit_class_goBack()"><div class="ion-android-arrow-back back-icon"></div></a>
+    </div>
+</ion-header>
+  <ion-content class="margin-top new_margin"  ng-controller="editClassCtrl" >
+ 
+<div class="uplod-image uplod-avtar">
+<img ng-src="{{image || '17_c_17.png'}}"   on-tap="classIconPopup()"/>
+
+</div>
+<div class="list">
+<div class="profile feild responsive-sm"> 
+<form name="formClass" novalidate>
+<label class="item item-input my-input add-class col col-67">
+    <input type="text" placeholder="Class Name." class="place-color" ng-model="className" ng-required="true">
+  </label>
+  
+ <label class="item item-input item-select  my-input my-select add-class-select col col-25">
+
+  <select class="new-select" ng-model="gradeName">
+  <option ng-repeat="class in selectGrades" value="{{class.key}}">{{class.value}}</option>
+</select>
+  </label>   
+<button class="button button-block button-positive save-btn" ng-disabled="formClass.$invalid"  on-tap="updateClass()">Update class</button>
+<div class="remove-new col-100">
+       <a href=""  class="remove_btn" on-tap="removeClass()">Remove class</a>
+       </div>
+
+
+</div> 
+</form>
+</div> 
+ 
+
+  </div>
+  
+</div>
+    
+    
+  </ion-content>
+  
+
+</ion-modal-view>

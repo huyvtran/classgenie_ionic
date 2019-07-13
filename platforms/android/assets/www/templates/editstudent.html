@@ -1,0 +1,36 @@
+<ion-modal-view class ="model-width" ng-controller="editStudentCtrl2">
+
+<ion-header>
+      <div class="bar bar-header new-header back-btn">
+        <a href="javascript:void(0)" on-tap="edit_student_goBack()"><div class="ion-close back-icon" ></div></a>
+          <p class="col-60 ng-binding">{{studentName}}</p>
+      </div>
+ </ion-header>
+
+
+<ion-content class="margin-top new_margin" ng-controller="editStudentCtrl2" >
+<form name="formStudent" novalidate>
+
+<div class="uplod-image uplod-avtar">
+<img ng-src="{{image}}"   on-tap="classIconPopup()"/>
+
+</div>
+<div class="list">
+<div class="profile feild responsive-sm"> 
+
+<label class="item item-input my-input add-class col col-67">
+
+<input type="text" placeholder="Student Name" class="place-color" ng-model="name" ng-required="true">
+</label>
+
+
+<button class="button button-block button-positive save-btn"  on-tap="updateStudent()" ng-disabled="formStudent.$invalid">Save</button>
+<div class="remove-new col-100">
+<a href="javascript:void(0);"  class="remove_btn" on-tap="removeStudent()">Remove student</a>
+
+</div>
+</div> 
+</div> 
+</form>
+</ion-content>
+</ion-modal-view>
